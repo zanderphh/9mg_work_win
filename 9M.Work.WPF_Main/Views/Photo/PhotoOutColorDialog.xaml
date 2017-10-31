@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Photo.PhotoOutColorDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:WT="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common" 
+             xmlns:converter="clr-namespace:_9M.Work.WPF_Main.Infrastrcture"
+             xmlns:converterParam="clr-namespace:_9M.Work.WPF_Common.ValueObjects;assembly=9M.Work.WPF_Common"
+             xmlns:wpfspark="clr-namespace:WPFSpark;assembly=WPFSpark"
+             xmlns:ecv="clr-namespace:_9M.Work.WPF_Main.Infrastrcture"
+             mc:Ignorable="d" 
+             Style="{StaticResource DialogViewStyle}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="All"    x:Name="photoGoodslist" 
+                          ItemsSource="{Binding DataContext.Items, Mode=TwoWay, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Width="120" Header="选项">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                <CheckBox Name="ck" IsChecked="{Binding isSelected}" Click="ck_click"></CheckBox>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="颜色" Binding="{Binding color}" Width="180"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Grid.Row="2">
+            <Button Content="OK" Width="80" VerticalAlignment="Center" Height="30" Click="btn_ok"></Button>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

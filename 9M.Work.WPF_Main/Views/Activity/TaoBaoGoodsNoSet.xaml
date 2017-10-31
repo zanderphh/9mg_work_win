@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Activity.TaoBaoGoodsNoSet"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9M.Work.WPF_Main.Views.Activity"
+             mc:Ignorable="d" 
+             Style="{StaticResource DialogViewStyle}">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Label>填写款号</Label>
+            <TextBox Width="150" Height="100"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"  Name="rich_GoodsNo"/>
+            <WrapPanel Orientation="Horizontal" Margin="40,10,0,0" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Button Content="确定" Style="{DynamicResource AccentedSquareButtonStyle}" Height="30" Click="Button_Click" Tag="0" Margin="0,0,10,0"></Button>
+                <Button Content="取消" Style="{DynamicResource AccentedSquareButtonStyle}" Height="30" Click="Button_Click" Tag="1"></Button>
+            </WrapPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

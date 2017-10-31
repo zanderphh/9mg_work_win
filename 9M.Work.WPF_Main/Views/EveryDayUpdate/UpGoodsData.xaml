@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.EveryDayUpdate.UpGoodsData"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:PubControl ="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common" 
+             >
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="5,10,0,0">
+            <StackPanel Orientation="Horizontal">
+              
+                <Button  Style="{DynamicResource AccentedSquareButtonStyle}" Content="导入(Excel)文件" Width="120" Height="40" Click="Button_Click" Tag="0" FontFamily="11" ></Button>
+                <Label VerticalContentAlignment="Center">上架状态</Label>
+                <ComboBox SelectedIndex="0" Width="150" Name="Com_GoodsStatus">
+                    <ComboBoxItem Tag="1">立即上架</ComboBoxItem>
+                    <ComboBoxItem Tag="2">定时上架</ComboBoxItem>
+                    <ComboBoxItem Tag="2">放入仓库</ComboBoxItem>
+                </ComboBox>
+                <Controls:DateTimePicker Name="listpick"  Culture="zh-CN" Margin="10,0,0,0"></Controls:DateTimePicker>
+                <TextBox IsEnabled="False" Width="250" Margin="20,0,0,0" Name="tb_imageurl" Text="" VerticalContentAlignment="Center"></TextBox>
+                <Button Style="{DynamicResource AccentedSquareButtonStyle}"  Name="btn_imgurl" Click="Button_Click" Tag="1">橱窗图目录</Button>
+                <TextBox IsEnabled="False" Width="350" Margin="20,0,0,0" Name="tb_usrurl" Text="" VerticalContentAlignment="Center"></TextBox>
+                <Button Style="{DynamicResource AccentedSquareButtonStyle}"   Click="Button_Click" Tag="2" >助理用户目录</Button>
+                <CheckBox Margin="20,0,0,0" Name="chk_wanless">手机描述</CheckBox>
+                <Button Margin="20,0,0,0" Style="{StaticResource GlassButton}"  Background="Green"   Height="40" Width="40" Click="Btn_GetData"  HorizontalAlignment="Left" >
+                    <Label Content="生成" FontSize="13" Foreground="White" FontWeight="Bold"></Label>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+        <!--进度条-->
+        <PubControl:CustomProgressBar Name="bar"></PubControl:CustomProgressBar>
+    </Grid>
+</UserControl>

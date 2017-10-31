@@ -1,0 +1,28 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.EveryDayUpdate.FuDaiGoodsUp"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9M.Work.WPF_Main.Views.EveryDayUpdate"
+             mc:Ignorable="d" 
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+               xmlns:localPager="clr-namespace:_9M.Work.WPF_Common.Controls.Pagination;assembly=9M.Work.WPF_Common" 
+         xmlns:temp="clr-namespace:_9M.Work.WPF_Main.Views.EveryDayUpdate.FuDaiTemplate"
+           >
+    <Grid>
+        <TabControl Style="{DynamicResource TabControlStyle2}" Name="Tabs" SelectionChanged="Tabs_SelectionChanged">
+            <TabItem Style="{DynamicResource TabItemStyle2}" Header="批次管理" Width="120">
+                <temp:Batch x:Name="temp_batch"></temp:Batch>
+            </TabItem>
+            <TabItem Style="{DynamicResource TabItemStyle2}" Header="拍照/分款" Width="120">
+                <temp:PhotoAndClass x:Name="PhotoTemp"></temp:PhotoAndClass>
+            </TabItem>
+            <TabItem Style="{DynamicResource TabItemStyle2}" Header="选款上架" Width="120">
+                <temp:UpGoods x:Name="UpGoodsTemp"></temp:UpGoods>
+            </TabItem>
+            <TabItem Style="{DynamicResource TabItemStyle2}" Header="福袋管理" Width="120">
+                <temp:FuDaiGoodsList x:Name="FudaiGoodsTemp" ></temp:FuDaiGoodsList>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

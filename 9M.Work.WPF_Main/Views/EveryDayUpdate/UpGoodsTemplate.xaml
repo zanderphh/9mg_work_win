@@ -1,0 +1,186 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.EveryDayUpdate.UpGoodsTemplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"  RenderOptions.BitmapScalingMode="NearestNeighbor"
+              xmlns:ext ="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common"
+             >
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Border CornerRadius="4" BorderBrush="Silver" BorderThickness="1" Padding="5,0,5,0">
+                            <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="尺码表分类"></Label>
+                <ComboBox Width="110" Name="com_category" SelectionChanged="com_category_SelectionChanged">
+
+                </ComboBox>
+                <Label Content="款号"></Label>
+                <TextBox Width="100"></TextBox>
+                <Button Content="保存" ></Button>
+                <Button Content="删除" ></Button>
+                <Button Content="修改" ></Button>
+                <Button Content="清空" ></Button>
+                <Button Content="模板搜索" ></Button>
+                <Button Content="模板预览" ></Button>
+                <Button Content="生成图片" ></Button>
+            </StackPanel>
+            <StackPanel Width="680" Margin="0,20,0,0" Orientation="Vertical" HorizontalAlignment="Left" Background="White">
+                <!--<Image  Width="680" Height="58" Stretch="None"  UseLayoutRounding="True"  Source="/9M.Work.WPF_Main;component/Images/EveryDayUpdate/cshop2bg_header.jpg"></Image>-->
+                <!--页头-->
+                <StackPanel Orientation="Vertical">
+                    <TextBlock HorizontalAlignment="Center" Margin="0,19,0,0">
+                        <Run Text="PRODUCT INFO&amp;SIZE" FontSize="9.5" ></Run>
+                         
+                    </TextBlock>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,-4,0,0">
+                        <Run Text="宝贝属性及尺码" FontSize="14" FontWeight="Bold"></Run>
+                    </TextBlock>
+                    <Line X1="0" X2="680" Y1="7" Y2="7" Stroke="#333333" StrokeThickness="4" ></Line>
+                </StackPanel>
+                <!--颜色重量特点成份-->
+                <Grid Margin="0,20,0,0"  ext:GridHelper.ShowBorder="True">
+                    <Grid.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="85"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="颜色" Grid.Row="0" ></Label>
+                    <Label Content="特点" Grid.Row="1"></Label>
+                    <Label Content="成份" Grid.Row="2"></Label>
+                    <Grid Grid.Row="0" Grid.Column="1" ext:GridHelper.ShowBorder="True">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="295"></ColumnDefinition>
+                            <ColumnDefinition Width="96"></ColumnDefinition>
+                            <ColumnDefinition Width="203"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Grid.Row="0" Width="290" Height="25" ></TextBox>
+                        <Label Content="重量" Grid.Column="1" Grid.Row="0" ></Label>
+                        <TextBox Grid.Column="2" Grid.Row="0" Width="198" Height="25"></TextBox>
+                    </Grid>
+                    <TextBox Grid.Row="1" Grid.Column="1" Width="588" Height="25"></TextBox>
+                    <TextBox Grid.Row="2" Grid.Column="1" Width="588" Height="25"></TextBox>
+                </Grid>
+                <!--属性值-->
+                <StackPanel Name="Panel_Attribute">
+                    <StackPanel.Resources>
+                        <Style TargetType="Label">
+                            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                            <Setter Property="FontSize" Value="14"></Setter>
+                            <Setter Property="Width" Value="82.5"></Setter>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+                            <Setter Property="Cursor" Value="Hand"></Setter>
+                        </Style>
+                    </StackPanel.Resources>
+                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+
+                        <Grid HorizontalAlignment="Left" ext:GridHelper.ShowBorder="True" Margin="2,0,0,0" Name="BanXing">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="板型" Grid.Column="0" Grid.Row="0" FontWeight="Bold" Width="83"></Label>
+                            <Label Content="紧身" Grid.Column="1" Grid.Row="0" ></Label>
+                            <Label Content="合身" Grid.Column="2" Grid.Row="0" ></Label>
+                            <Label Content="宽松" Grid.Column="3" Grid.Row="0" ></Label>
+                        </Grid>
+
+                        <Grid  HorizontalAlignment="Left" ext:GridHelper.ShowBorder="True" Margin="17,0,0,0" Name="HouBao">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="厚薄指数" Grid.Column="0" Grid.Row="0" FontWeight="Bold" Width="83"></Label>
+                            <Label Content="厚" Grid.Column="1" Grid.Row="0" ></Label>
+                            <Label Content="厚薄适中" Grid.Column="2" Grid.Row="0"></Label>
+                            <Label Content="薄" Grid.Column="3" Grid.Row="0" ></Label>
+                        </Grid>
+                    </StackPanel>
+                    <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                        <Grid  HorizontalAlignment="Left" ext:GridHelper.ShowBorder="True" Margin="2,0,0,0" Name="TanXing">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="面料弹性" Grid.Column="0" Grid.Row="0" FontWeight="Bold" Width="83"></Label>
+                            <Label Content="无弹力" Grid.Column="1" Grid.Row="0" ></Label>
+                            <Label Content="有弹力" Grid.Column="2" Grid.Row="0"></Label>
+                            <Label Content="高弹力" Grid.Column="3" Grid.Row="0"></Label>
+                        </Grid>
+
+                        <Grid  HorizontalAlignment="Left" ext:GridHelper.ShowBorder="True" Margin="17,0,0,0" Name="RouRuan">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  ></ColumnDefinition>
+                                <ColumnDefinition  ></ColumnDefinition>
+                                <ColumnDefinition  ></ColumnDefinition>
+                                <ColumnDefinition ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="柔软指数" Grid.Column="0" Grid.Row="0" FontWeight="Bold" Width="83"></Label>
+                            <Label Content="柔软" Grid.Column="1" Grid.Row="0" ></Label>
+                            <Label Content="适中" Grid.Column="2" Grid.Row="0" ></Label>
+                            <Label Content="偏硬" Grid.Column="3" Grid.Row="0" ></Label>
+                        </Grid>
+                    </StackPanel>
+                </StackPanel>
+                <!-- 尺码值-->
+                <Grid Name="SizeGrid" Margin="1,10,0,0" ext:GridHelper.ShowBorder="True" ></Grid>
+                <!--页脚-->
+                <Border BorderBrush="Gray" BorderThickness="0.1" Padding="2,2,2,2" Height="60">
+                    <StackPanel Orientation="Vertical" Margin="10,8,0,0">
+                    <TextBlock>
+                        <Run FontWeight="Bold">温馨提示:</Run>
+                        <Run>手工测量无法保证分毫不差,1-3cm内为正常误差范围,尤其是弹力面料和针织产品等.表内尺寸仅供参考.</Run>
+                    </TextBlock>
+                        <TextBlock Text="版型不同的服饰,即使尺寸相同,上身效果也可能不一样,请勿盲目主观性判断."></TextBlock>
+                    </StackPanel>
+                </Border>
+                <!--<Image   Stretch="None"  UseLayoutRounding="True"  Source="/9M.Work.WPF_Main;component/Images/EveryDayUpdate/cshop2bg_footer.png"></Image>-->
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.EveryDayUpdate.FuDaiTemplate.FuDaiGoodsList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9M.Work.WPF_Main.Views.EveryDayUpdate.FuDaiTemplate"
+             mc:Ignorable="d" 
+                xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+               xmlns:localPager="clr-namespace:_9M.Work.WPF_Common.Controls.Pagination;assembly=9M.Work.WPF_Common" 
+             >
+    <StackPanel Orientation="Vertical">
+        <Border BorderThickness="0.5" BorderBrush="Gray" CornerRadius="1" Height="38">
+            <StackPanel Orientation="Horizontal" Height="30">
+                <Label>模糊搜索：</Label>
+                <TextBox Name="tb_querybox" VerticalContentAlignment="Center" Width="150" Margin="8,0,0,0"></TextBox>
+                <Button Margin="20,0,0,0" Width="50" Click="Goods_BtnClick" Tag="0">搜索</Button>
+                <Label  VerticalContentAlignment="Center" Foreground="White" Background="#00B0F0"  Width="800" Margin="300,0,0,0" >当前剩余 0 个福袋/累计销售 0 个/上架 0 次还未销售的福袋有 0 个</Label>
+  
+            </StackPanel>
+        </Border>
+        <localPager:NextPageControl  x:Name="nextPageControl1"  HorizontalAlignment="Right"  VerticalAlignment="Top" TotalPage="{Binding Path=TotalPage,Mode=TwoWay}" 
+                                            PageSize="{Binding Path=PageSize,Mode=TwoWay}" CurrentPage="{Binding Path=CurrentPage,Mode=TwoWay}" Margin="370,8,0,0" >
+            <i:Interaction.Triggers>
+                <i:EventTrigger  EventName="PageChanged">
+                    <i:InvokeCommandAction  Command="{Binding Path=NextPageSearchCommand, Mode=TwoWay}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </localPager:NextPageControl>
+        <DataGrid Margin="0,10,0,0" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="All" Style="{DynamicResource AzureDataGrid}" RenderOptions.ClearTypeHint="Enabled" 
+                          TextOptions.TextFormattingMode="Display" x:Name="GoodsGridlist" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="商品ID" Binding="{Binding ID}"  Width="150" Visibility="Collapsed"/>
+                <DataGridTextColumn Header="批次ID" Binding="{Binding BatchID}"  Width="80"/>
+                <DataGridTextColumn Header="款号" Binding="{Binding GoodsNo}" Width="100" />
+                <DataGridTextColumn Header="附加码" Binding="{Binding SpecCode}" Width="80"/>
+                <DataGridTextColumn Header="品牌" Binding="{Binding Brand}" Width="80"/>
+                <DataGridTextColumn Header="分类"  Binding="{Binding CategoryName}" Width="100"/>
+                <DataGridTextColumn Header="类型"  Binding="{Binding Class}" Width="100"/>
+                <DataGridTextColumn Header="价格" Binding="{Binding Price}" Width="80" />
+                <DataGridTextColumn Header="尺码" Binding="{Binding Size}" Width="80"/>
+                <DataGridTextColumn Header="销售次数" Binding="{Binding SellMore}" Width="80"/>
+                <DataGridTextColumn Header="是否销售" Binding="{Binding IsSell}" Width="80"/>
+                <DataGridTextColumn Header="新建时间" Width="200" Binding="{Binding CreateTime,StringFormat=yyyy-MM-dd HH:mm:ss}" />
+                <DataGridTemplateColumn Width="120">
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate >
+                            <TextBlock Width="100" TextAlignment="Center">操作</TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Width="25" Height="25" Margin="0,0,0,0" ToolTip="编辑福袋" Click="Button_EditClick" Tag="0">
+                                <Viewbox>
+                                    <Rectangle Width="20" Height="20"  Fill="{Binding Path=Foreground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+                                        <Rectangle.OpacityMask>
+                                            <VisualBrush Stretch="Uniform" Visual="{DynamicResource appbar_weather_sun}" />
+                                        </Rectangle.OpacityMask>
+                                    </Rectangle>
+                                </Viewbox>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</UserControl>

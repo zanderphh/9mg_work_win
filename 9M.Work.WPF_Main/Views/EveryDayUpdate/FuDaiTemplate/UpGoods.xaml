@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.EveryDayUpdate.FuDaiTemplate.UpGoods"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9M.Work.WPF_Main.Views.EveryDayUpdate.FuDaiTemplate"
+             mc:Ignorable="d" 
+           >
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                <Label>品牌选择：</Label>
+                <Border BorderBrush="Gray" BorderThickness="1" Width="400" Height="100">
+                    <ScrollViewer x:Name="scrolls" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="100">
+                        <ScrollViewer.Content>
+                            <StackPanel x:Name="Panel_Brand" Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Auto"></StackPanel>
+                        </ScrollViewer.Content>
+                    </ScrollViewer>
+                    
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,50,0,0" Name="Radio_Class">
+                <Label VerticalContentAlignment="Center">选择级别：</Label>
+                <RadioButton Style="{StaticResource BoxRadioButtonForFuDai}" BorderThickness="1"  Width="150" Height="40" FontSize="17">小件(春夏秋)</RadioButton>
+                <RadioButton Style="{StaticResource BoxRadioButtonForFuDai}" BorderThickness="1" Width="150" Height="40" FontSize="17" Margin="80,0,0,0">大件(冬)</RadioButton>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="0,50,0,0" Name="Radio_Size">
+                <Label VerticalContentAlignment="Center">尺码比例：</Label>
+                <WrapPanel Orientation="Vertical">
+                    <RadioButton IsEnabled="False" Style="{StaticResource BoxRadioButtonForFuDai}" BorderThickness="1" Background="LightGray" Width="60" Height="40" FontSize="17">S</RadioButton>
+                    <TextBox Width="60" Height="40" Margin="0,10,0,0" VerticalContentAlignment="Center" FontSize="20"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Vertical" Margin="20,0,0,0">
+                    <RadioButton IsEnabled="False" Style="{StaticResource BoxRadioButtonForFuDai}" BorderThickness="1" Background="LightGray" Width="60" Height="40" FontSize="17">M</RadioButton>
+                    <TextBox VerticalContentAlignment="Center" FontSize="20" Width="60" Height="40" Margin="0,10,0,0"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Vertical" Margin="20,0,0,0">
+                    <RadioButton IsEnabled="False" Style="{StaticResource BoxRadioButtonForFuDai}" BorderThickness="1" Background="LightGray" Width="60" Height="40" FontSize="17">L</RadioButton>
+                    <TextBox VerticalContentAlignment="Center" FontSize="20" Width="60" Height="40" Margin="0,10,0,0"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Vertical" Margin="20,0,0,0" >
+                    <RadioButton IsEnabled="False" Style="{StaticResource BoxRadioButtonForFuDai}" BorderThickness="1" Background="LightGray" Width="60" Height="40" FontSize="17">XL</RadioButton>
+                    <TextBox VerticalContentAlignment="Center" FontSize="20" Width="60" Height="40" Margin="0,10,0,0"></TextBox>
+                </WrapPanel>
+                <WrapPanel Orientation="Vertical" Margin="20,0,0,0">
+                    <RadioButton IsEnabled="False" Style="{StaticResource BoxRadioButtonForFuDai}" BorderThickness="1" Background="LightGray" Width="60" Height="40" FontSize="17">XXL</RadioButton>
+                    <TextBox VerticalContentAlignment="Center" FontSize="20" Width="60" Height="40" Margin="0,10,0,0"></TextBox>
+                </WrapPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="360,65,0,0" Height="40">
+                <Button Width="100" FontSize="20" Click="Button_Click" Tag="0">查看预览</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

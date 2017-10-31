@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.QualityCheck.BatchOperation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+           Style="{StaticResource DialogViewStyle}" >
+    <Grid>
+        <WrapPanel Orientation="Vertical" Margin="0,10,0,0">
+            <WrapPanel>
+                <Label Content="批次名:"></Label>
+                <TextBox Width="100" Name="tb_BatchName"></TextBox>
+                <Label Content="品 牌:"></Label>
+                <ComboBox Width="100"  Name="cb_Brand">
+                    
+                </ComboBox>
+            </WrapPanel>
+            <WrapPanel  Margin="0,20,0,0">
+
+                <Label Content="所属季节:"></Label>
+                <CheckBox Content="春" VerticalAlignment="Center" Name="chb_1" Margin="5 0 0 0"></CheckBox>
+                <CheckBox Content="夏" VerticalAlignment="Center" Margin="10,0,0,0" Name="chb_2"></CheckBox>
+                <CheckBox Content="秋" VerticalAlignment="Center" Margin="10,0,0,0" Name="chb_3"></CheckBox>
+                <CheckBox Content="冬" VerticalAlignment="Center" Margin="10,0,0,0" Name="chb_4"></CheckBox>
+              
+            </WrapPanel>
+            <WrapPanel  Margin="0,20,0,0">
+                <Label Content="上新年份:"></Label>
+                <TextBox Width="40" Name="tb_Year1"></TextBox>
+                <TextBox Width="40" Name="tb_Year2" Margin="5,0,0,0"></TextBox>
+                <TextBox Width="40" Name="tb_Year3" Margin="5,0,0,0"></TextBox>
+                <TextBox Width="40" Name="tb_Year4" Margin="5,0,0,0"></TextBox>
+                <Label Content="Ps:对应季节" Foreground="Red"></Label>
+            </WrapPanel>
+            <WrapPanel Margin="0,20,0,0">
+                <Label Content="总件数:"></Label>
+                <TextBox Width="50" Name="tb_UnitCount"></TextBox>
+                <Label Content="总款数:"></Label>
+                <TextBox Width="50" Name="tbWareCount"></TextBox>
+            </WrapPanel>
+            <WrapPanel Margin="0,20,0,0">
+                <Label Content="残次品:"></Label>
+                <TextBox Width="50" Name="tb_ImperfectCount"></TextBox>
+                <Label Content="残次率:"></Label>
+                <TextBox Width="40" Name="tb_ImperfectRate" ></TextBox>
+                <Label Content="%"></Label>
+                <Label Content="单款单件:"></Label>
+                <TextBox Width="50" Name="tb_OneOnOne"></TextBox>
+            </WrapPanel>
+            <WrapPanel Margin="0,20,0,0">
+                <Label Content="分款时间:"></Label>
+                <DatePicker Width="120" Name="dp_Distinguishdate" VerticalContentAlignment="Center"></DatePicker>
+                <!--<Label Content="入库时间:"></Label>
+                <DatePicker Width="120" Name="dp_Instockdate" VerticalContentAlignment="Center"></DatePicker>-->
+            </WrapPanel>
+
+            <WrapPanel Margin="0,20,0,0">
+               
+                <Label Content="入库时间:"></Label>
+                <DatePicker Width="120" Name="dp_Instockdate" VerticalContentAlignment="Center"></DatePicker>
+            </WrapPanel>
+
+            <WrapPanel Margin="0,20,0,0">
+                <WrapPanel >
+                    <Label Content="备注:"></Label>
+                    <TextBox Width="150" Height="60"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"  Name="rich_Remark"/>
+                    <!--<RichTextBox Width="150" Height="60" Name="rich_Remark"></RichTextBox>-->
+                </WrapPanel>
+
+                <WrapPanel  Margin="40,0,0,0" VerticalAlignment="Center">
+                    <Button Content="确定" Style="{DynamicResource AccentedSquareButtonStyle}" Height="30" Click="Button_Click" Tag="0" Margin="0,0,10,0"></Button>
+                    <Button Content="取消" Style="{DynamicResource AccentedSquareButtonStyle}" Height="30" Click="Button_Click" Tag="1"></Button>
+                </WrapPanel>
+            </WrapPanel>
+        </WrapPanel>
+    </Grid>
+</UserControl>

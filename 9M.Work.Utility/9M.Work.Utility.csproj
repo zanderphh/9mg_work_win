@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B0F8D955-3AC1-46C3-B42F-0599426EE1AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_9M.Work.Utility</RootNamespace>
+    <AssemblyName>9M.Work.Utility</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells">
+      <HintPath>..\9M.Work.DLL\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\9M.Work.DLL\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\9M.Work.DLL\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\9M.Work.DLL\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\9M.Work.DLL\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\9M.Work.DLL\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode">
+      <HintPath>..\9M.Work.DLL\ThoughtWorks.QRCode.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BarCode.cs" />
+    <Compile Include="Code128Auto.cs" />
+    <Compile Include="ControlsConfig.cs" />
+    <Compile Include="ConvertType.cs" />
+    <Compile Include="CookieHelper.cs" />
+    <Compile Include="DatagridViewCheckBoxHeaderCell.cs" />
+    <Compile Include="DriveReflection.cs" />
+    <Compile Include="EntityHelper.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="ExcelExport.cs" />
+    <Compile Include="ExcelNpoi.cs" />
+    <Compile Include="FileHelper.cs" />
+    <Compile Include="FileShareNet.cs" />
+    <Compile Include="FontOperate.cs" />
+    <Compile Include="GoodsHelper.cs" />
+    <Compile Include="HttpHelper.cs" />
+    <Compile Include="HttpWebRequestHelper.cs" />
+    <Compile Include="ImageConvert.cs" />
+    <Compile Include="ImageWatermark.cs" />
+    <Compile Include="ListToDataTable.cs" />
+    <Compile Include="LogonImpersonate.cs" />
+    <Compile Include="MemoryCacheHelper.cs" />
+    <Compile Include="MFTScanner.cs" />
+    <Compile Include="NetworkConnection.cs" />
+    <Compile Include="NetWorkUntity.cs" />
+    <Compile Include="OperIni.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QrCodeHelper.cs" />
+    <Compile Include="RegexHelper.cs" />
+    <Compile Include="SecurityHelper.cs" />
+    <Compile Include="SerializationHelper.cs" />
+    <Compile Include="SessionHelper.cs" />
+    <Compile Include="StringHelper.cs" />
+    <Compile Include="TaskAsyncHelper.cs" />
+    <Compile Include="ValidateCode.cs" />
+    <Compile Include="XmlHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\9M.Work.WSVariable\9M.Work.WSVariable.csproj">
+      <Project>{1226ecae-d42f-4629-849b-88865cde4abc}</Project>
+      <Name>9M.Work.WSVariable</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

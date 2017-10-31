@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.QualityCheck.WarePacking"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              xmlns:PubControl ="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common" 
+             xmlns:ControlTemplate  ="clr-namespace:_9M.Work.WPF_Main.ControlTemplate"
+            >
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="80"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+            <Setter Property="Foreground" Value="Coral"></Setter>
+        </Style>
+
+    </UserControl.Resources>
+    <Viewbox Stretch ="Fill">
+        <Grid>
+            <Border  BorderBrush="LightGray" BorderThickness="2"  CornerRadius="4" >
+                <!--图片列表-->
+                <WrapPanel  Orientation="Vertical" >
+                    <WrapPanel Orientation="Horizontal">
+                        <PubControl:ImagePanel Width="1550" Height="820" TransverseCount ="4" UprightCount="2" MarginRow="20" MarginColumn="20" Name="ImageBox" SelectedEvent="True" ImageUp="False" TitleFontSize="70" BigImage="False"></PubControl:ImagePanel>
+                        <Border BorderBrush="LightGray" BorderThickness="2" Margin="20,0,0,0" Width="300">
+                            <Border BorderBrush="Green" BorderThickness="0" CornerRadius="8" VerticalAlignment="Top">
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox FontSize="35" Width="200" Height="70" Name="tb_WareNo" KeyDown="tb_WareNo_KeyDown" VerticalContentAlignment="Center"></TextBox>
+                                        <Button Content="搜索" Style="{StaticResource ButtonRedStyle}" Width="70" Height="60" Margin="20,0,0,0" Click="Button_Click" FontSize="20"></Button>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" >
+                                        <Label Content="款号"  FontWeight="Bold" FontSize="40" VerticalContentAlignment="Center" ></Label>
+                                        <Label Name="lab_WareNo"  FontWeight="Bold" FontSize="35" Height="70" VerticalContentAlignment="Center" Foreground="Tan"></Label>
+                                    </StackPanel>
+                                    <Border  BorderBrush="Tan" Margin="20,10,0,0">
+                                        <StackPanel Orientation="Vertical" Name="Stack_PeiShi" >
+                                            <RadioButton Content="有毛领" FontSize="50"></RadioButton>
+                                            <RadioButton Content="有腰带" FontSize="50" Margin="0,20,0,0"></RadioButton>
+                                            <RadioButton Content="有配饰" FontSize="50" Margin="0,20,0,0"></RadioButton>
+                                        </StackPanel>
+
+                                    </Border>
+                                    <CheckBox FontSize="40" Margin="0,20,0,0" Name="tb_printck" IsChecked="True">打印仓库货位</CheckBox>
+                                    <Button Name="Btn_PeiShi" Content="刷新配饰" Margin="140,20,0,0" Style="{DynamicResource AccentedSquareButtonStyle}" Click="Btn_AddPeiShi"  Height="80" Width="140" FontSize="25" Visibility="Collapsed"></Button>
+                                    <Button Name="btn_Log" Margin="10,0,0,0"  Background="Fuchsia" Style="{StaticResource GlassButton}" Height="110" Width="180" Click="Btn_CommandClick" Tag="4" Visibility="Collapsed">
+                                        <Label Content="查看日志" FontSize="30" Foreground="White" FontWeight="Bold" ></Label>
+                                    </Button>
+                                    <Label Height="100" Width="230" Name="lab_fyi" FontSize="33" VerticalContentAlignment="Center" Margin="0,0,0,0"></Label>
+                                    <ControlTemplate:PerformancePanel   Performance="1"  x:Name="PerPanel" Height="235" Margin="0,20,0,0" ></ControlTemplate:PerformancePanel>
+                                </StackPanel>
+                            </Border>
+                        </Border>
+                    </WrapPanel>
+                    <WrapPanel HorizontalAlignment="Left" Margin="0,10,0,0" >
+
+                        <Border BorderBrush="LightGray" BorderThickness="0" CornerRadius="3">
+                            <WrapPanel  Width="1320" Name="Radio_Panel">
+                                <!--<RadioButton  Style="{StaticResource BoxRadioButton}" Margin="0,0,0,0" Height="70" Width="100">XS</RadioButton>-->
+                                <!--<RadioButton  Style="{StaticResource BoxRadioButton}" Margin="0,0,0,0" Checked="RadioButton_Checked" Foreground="Yellow">S</RadioButton>
+                                <RadioButton  Style="{StaticResource BoxRadioButton}" Margin="40,0,0,0" Checked="RadioButton_Checked" Foreground="Red">M</RadioButton>
+                                <RadioButton  Style="{StaticResource BoxRadioButton}" Margin="40,0,0,0" Checked="RadioButton_Checked" Foreground="Green">L</RadioButton>
+                                <RadioButton  Style="{StaticResource BoxRadioButton}" Margin="40,0,0,0" Checked="RadioButton_Checked" Foreground="Blue">XL</RadioButton>
+                                <RadioButton  Style="{StaticResource BoxRadioButton}" Margin="40,0,0,0" Checked="RadioButton_Checked" Foreground="Black">XXL</RadioButton>-->
+                                <!--<RadioButton  Style="{StaticResource BoxRadioButton}" Margin="40,0,0,0" Height="70" Width="100">XXXL</RadioButton>-->
+                            </WrapPanel>
+                        </Border>
+                        <Label Name="lab_Timing" Width="120" VerticalContentAlignment="Center" Margin="15,0,0,0" Visibility="Collapsed"></Label>
+
+                        <CheckBox Margin="20,0,0,0" Content="双排" FontWeight="Bold" Name="Check_Double" FontSize="25" Visibility="Collapsed"></CheckBox >
+                        <Label VerticalContentAlignment="Center"  Margin="25,0,0,0" FontSize="30" Visibility="Collapsed">数量</Label>
+                        <TextBox Width="50" Height="40" Name="tb_count" VerticalContentAlignment="Center" FontSize="20" Visibility="Collapsed">1</TextBox>
+                        <Button Name="btn_Print" Margin="20,0,0,0"  Background="Green" Style="{StaticResource GlassButton}" Height="70" Width="120" Click="Btn_CommandClick" Tag="2" Visibility="Collapsed" >
+                            <Label Content="打印" FontSize="28" Foreground="White" FontWeight="Bold"></Label>
+                        </Button>
+                        <Button Style="{StaticResource GlassButton}"  Background="Red"  Margin="0,0,0,0" Height="110" Width="110" Click="Btn_CommandClick" Tag="1" >
+                            <Label Name="btn_Canel" Content="撤销" FontSize="24" Foreground="White" FontWeight="Bold"></Label>
+                        </Button>
+                        <Button Name="btn_Clear" Margin="50,0,0,0"  Background="Green" Style="{StaticResource GlassButton}" Height="110" Width="110" Click="Btn_Clear" Tag="3" >
+                            <Label Content="清空" FontSize="24" Foreground="White" FontWeight="Bold"></Label>
+                        </Button>
+
+                        <Button Name="btn_remark" Margin="50,0,0,0"  Background="Blue" Style="{StaticResource GlassButton}" Height="110" Width="110" Click="Btn_CommandClick" Tag="3" Visibility="Collapsed" >
+                            <Label Content="备注" FontSize="24" Foreground="White" FontWeight="Bold"></Label>
+                        </Button>
+
+                        <CheckBox Content="批量打印" FontSize="28" Margin="20 0 0 0" x:Name="ckIsBatchPrint"></CheckBox>
+                    </WrapPanel>
+                    <!--<WrapPanel Margin="0,20,0,0">
+                    <Label Content="配饰选择:" VerticalAlignment="Center" ></Label>
+                    <ComboBox Width="100" SelectedIndex="0" Height="30">
+                        <ComboBoxItem>饰品</ComboBoxItem>
+                    </ComboBox>
+                  
+                </WrapPanel>-->
+                </WrapPanel>
+
+            </Border>
+            <Popup Name="ModalDialog" StaysOpen="True" Placement="Center">
+                <Border BorderThickness="2" BorderBrush="SteelBlue" Width="455" Height="660">
+                    <Grid Background="White">
+                        <DockPanel Height="36" VerticalAlignment="Top" Background="#009DED">
+                            <TextBox Height="36" Name="TxtBoxTitle" Width="120" Background="#009DED" 
+                                     BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White" FontSize="16" Focusable="False" IsHitTestVisible="False" IsTabStop="False" VerticalContentAlignment="Center">批量打印</TextBox>
+                            <Button Height="36" Name="BtnClose" Width="26" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16" Background="#009DED" Click="Dlg_BtnClose_Click">X</Button>
+                        </DockPanel>
+                        <Grid Margin="0 40 0 0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="120"></RowDefinition>
+                                <RowDefinition Height="120"></RowDefinition>
+                                <RowDefinition Height="120"></RowDefinition>
+                                <RowDefinition Height="120"></RowDefinition>
+                                <RowDefinition Height="120"></RowDefinition>
+                                <RowDefinition Height="10"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                                <ColumnDefinition Width="150"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button Grid.Row="0" Grid.Column="0" Content="7" FontSize="90" Margin="2 2 2 2" Tag="7" Click="btnNumClick"></Button>
+                            <Button Grid.Row="0" Grid.Column="1" Content="8" FontSize="90" Margin="2 2 2 2" Tag="8" Click="btnNumClick"></Button>
+                            <Button Grid.Row="0" Grid.Column="2" Content="9" FontSize="90" Margin="2 2 2 2" Tag="9" Click="btnNumClick"></Button>
+                            <Button Grid.Row="1" Grid.Column="0" Content="4" FontSize="90" Margin="2 2 2 2" Tag="4" Click="btnNumClick"></Button>
+                            <Button Grid.Row="1" Grid.Column="1" Content="5" FontSize="90" Margin="2 2 2 2" Tag="5" Click="btnNumClick"></Button>
+                            <Button Grid.Row="1" Grid.Column="2" Content="6" FontSize="90" Margin="2 2 2 2" Tag="6" Click="btnNumClick"></Button>
+                            <Button Grid.Row="2" Grid.Column="0" Content="1" FontSize="90" Margin="2 2 2 2" Tag="1" Click="btnNumClick"></Button>
+                            <Button Grid.Row="2" Grid.Column="1" Content="2" FontSize="90" Margin="2 2 2 2" Tag="2" Click="btnNumClick"></Button>
+                            <Button Grid.Row="2" Grid.Column="2" Content="3" FontSize="90" Margin="2 2 2 2" Tag="3" Click="btnNumClick"></Button>
+                            <Button Grid.Row="3" Grid.ColumnSpan="2" Content="0" FontSize="90" Margin="2 2 2 2" Tag="0" Click="btnNumClick"></Button>
+                            <Button Grid.Row="3" Grid.Column="2" Content="Del" FontSize="70" Margin="2 2 2 2" Click="btnDelNumber"></Button>
+                            <TextBox Grid.Row="4" Margin="2 2 2 2" FontSize="90" Foreground="Blue" Text="0" FontWeight="Black" x:Name="txtNumber"></TextBox>
+                            <Button Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Content="打印" FontSize="80" Margin="2 2 2 2" Click="btnBatchPrint"></Button>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Popup>
+        </Grid>
+    </Viewbox>
+</UserControl>

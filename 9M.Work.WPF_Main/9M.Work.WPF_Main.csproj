@@ -1,0 +1,2784 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{626C87C8-973E-401B-BA6A-159D9D88F56E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_9M.Work.WPF_Main</RootNamespace>
+    <AssemblyName>9M.Work.WPF_Main</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>_9M.Work.WPF_Main.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="9M.Model">
+      <HintPath>..\9M.Work.DLL\9M.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="9M.WebReqeust">
+      <HintPath>..\9M.Work.DLL\9M.WebReqeust.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\9M.Work.DLL\DevExpress.Data.v16.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\9M.Work.DLL\DevExpress.Printing.v16.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.ReportDesigner.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\9M.Work.DLL\DevExpress.Xpf.ReportDesigner.v16.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraPrinting.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\9M.Work.DLL\DevExpress.XtraPrinting.v16.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraReports.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\9M.Work.DLL\DevExpress.XtraReports.v16.1.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="JdSdk, Version=2014.4.12.0, Culture=neutral, PublicKeyToken=c3091b7879647f39, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\9M.Work.DLL\JdSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit, Version=1.1.3.1, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
+      <HintPath>..\packages\LinqKit.1.1.3.1\lib\net45\LinqKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.2.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\9M.Work.DLL\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\9M.Work.DLL\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Composition">
+      <HintPath>..\9M.Work.DLL\Microsoft.Practices.Prism.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Interactivity">
+      <HintPath>..\9M.Work.DLL\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Mvvm">
+      <HintPath>..\9M.Work.DLL\Microsoft.Practices.Prism.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.Mvvm.Desktop">
+      <HintPath>..\9M.Work.DLL\Microsoft.Practices.Prism.Mvvm.Desktop.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.PubSubEvents">
+      <HintPath>..\9M.Work.DLL\Microsoft.Practices.Prism.PubSubEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.SharedInterfaces">
+      <HintPath>..\9M.Work.DLL\Microsoft.Practices.Prism.SharedInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.UnityExtensions">
+      <HintPath>..\9M.Work.DLL\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\9M.Work.DLL\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1405-prerelease\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=3.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1405-prerelease\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.3.5.1404.0\lib\Net45\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Interception.3.5.1404.0\lib\Net45\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=3.5.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.3.5.1405-prerelease\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\9M.Work.DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Speech" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.2.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TopSdk, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\9M.Work.DLL\TopSdk.dll</HintPath>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WMControl">
+      <HintPath>..\9M.Work.DLL\WMControl.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFSpark">
+      <HintPath>..\9M.Work.DLL\WPFSpark.dll</HintPath>
+    </Reference>
+    <Reference Include="WPFVisifire.Charts">
+      <HintPath>..\9M.Work.DLL\WPFVisifire.Charts.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CCMessageBox\ControlTemplate\Activity\ActivityRed.xaml.cs">
+      <DependentUpon>ActivityRed.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CCMessageBox\ControlTemplate\CUpdateGoodsHeader.xaml.cs">
+      <DependentUpon>CUpdateGoodsHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CCMessageBox\ControlTemplate\FxUpdateGoodsHeader.xaml.cs">
+      <DependentUpon>FxUpdateGoodsHeader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CCMessageBox\ControlTemplate\PerformancePanel.xaml.cs">
+      <DependentUpon>PerformancePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CCMessageBox\ControlTemplate\PrintTemplate\LabelTemplate.xaml.cs">
+      <DependentUpon>LabelTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CCMessageBox\ControlTemplate\UpdateGoodsTemplate.xaml.cs">
+      <DependentUpon>UpdateGoodsTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CCMessageBox\ControlTemplate\WareLog.xaml.cs">
+      <DependentUpon>WareLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\CommonTrade.cs" />
+    <Compile Include="FrameWork\ChartHelper.cs" />
+    <Compile Include="FrameWork\ControlHelper.cs" />
+    <Compile Include="FrameWork\EDSDK.cs" />
+    <Compile Include="FrameWork\EDSDK_Help.cs" />
+    <Compile Include="FrameWork\GlobalUtil.cs" />
+    <Compile Include="FrameWork\ImageHelper.cs" />
+    <Compile Include="FrameWork\PrintHelper.cs" />
+    <Compile Include="FrameWork\SerialNoHelp.cs" />
+    <Compile Include="FrameWork\SqlDalHelp.cs" />
+    <Compile Include="Infrastrcture\BaseDialog.cs" />
+    <Compile Include="Infrastrcture\GridBackgroundConverter.cs" />
+    <Compile Include="Infrastrcture\JSDZCheckConverter.cs" />
+    <Compile Include="Infrastrcture\DynamicBind.cs" />
+    <Compile Include="Infrastrcture\EnumBind.cs" />
+    <Compile Include="Infrastrcture\EnumConverter.cs" />
+    <Compile Include="Infrastrcture\FormInit.cs" />
+    <Compile Include="Infrastrcture\MainShellModule.cs" />
+    <Compile Include="Infrastrcture\ReceiveConverter.cs" />
+    <Compile Include="Infrastrcture\RegionNames.cs" />
+    <Compile Include="Infrastrcture\ShopConverter.cs" />
+    <Compile Include="NotifyPropertyChanged\ActivityListNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\AndroidLogNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\EditInfo.cs" />
+    <Compile Include="NotifyPropertyChanged\FinanceNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\FinanceRegisterNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\FinanceRegsterListNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\FuDaiBatchNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\FuDaiGoodsNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\FxWorkOrderDialogNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\FxWorkOrderNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\GroupleaderNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\LiveCheckNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\LiveListNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\NewCreateNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\PhotoOutColorDialogNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\PhotoOutDialogNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\PhotoOutNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\RefundlistNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\RefundScanReceiptNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\RegisterJSDZPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\RegisterRefundNotiyProperyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\StockPDNotifyPropertyChanged.cs" />
+    <Compile Include="NotifyPropertyChanged\UnpackingCheckNotifyPropertyChanged.cs" />
+    <Compile Include="Service References\UpdateGoodsServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TestWindwos.xaml.cs">
+      <DependentUpon>TestWindwos.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Activity\ActivityMain.xaml.cs">
+      <DependentUpon>ActivityMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Activity\ActivitySet.xaml.cs">
+      <DependentUpon>ActivitySet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Activity\DMCreate.xaml.cs">
+      <DependentUpon>DMCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Activity\DmMarketingSale.xaml.cs">
+      <DependentUpon>DmMarketingSale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Activity\TaoBaoGoodsNoSet.xaml.cs">
+      <DependentUpon>TaoBaoGoodsNoSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BottomView.xaml.cs">
+      <DependentUpon>BottomView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataCenter\DataExport.xaml.cs">
+      <DependentUpon>DataExport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataCenter\FenXiaoData.xaml.cs">
+      <DependentUpon>FenXiaoData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataCenter\GoodsSync.xaml.cs">
+      <DependentUpon>GoodsSync.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataCenter\SetPrice.xaml.cs">
+      <DependentUpon>SetPrice.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataCenter\SetPriceLog.xaml.cs">
+      <DependentUpon>SetPriceLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataCenter\StockUpdate.xaml.cs">
+      <DependentUpon>StockUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataCenter\SyncGoodsDialog.xaml.cs">
+      <DependentUpon>SyncGoodsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DataCenter\TaobaoData.xaml.cs">
+      <DependentUpon>TaobaoData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\GoodsNoDialog.xaml.cs">
+      <DependentUpon>GoodsNoDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialog\TreeDialog.xaml.cs">
+      <DependentUpon>TreeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\EveryDayUpdateCode.xaml.cs">
+      <DependentUpon>EveryDayUpdateCode.xaml</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\FuDaiBatchOperat.xaml.cs">
+      <DependentUpon>FuDaiBatchOperat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\FuDaiGoodsEdit.xaml.cs">
+      <DependentUpon>FuDaiGoodsEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\FuDaiGoodsUp.xaml.cs">
+      <DependentUpon>FuDaiGoodsUp.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\FuDaiTemplate\Batch.xaml.cs">
+      <DependentUpon>Batch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\FuDaiTemplate\FuDaiGoodsList.xaml.cs">
+      <DependentUpon>FuDaiGoodsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\FuDaiTemplate\PhotoAndClass.xaml.cs">
+      <DependentUpon>PhotoAndClass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\FuDaiTemplate\UpGoods.xaml.cs">
+      <DependentUpon>UpGoods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\FuDaiUpGoodsPreview.xaml.cs">
+      <DependentUpon>FuDaiUpGoodsPreview.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\GoodsQuery.xaml.cs">
+      <DependentUpon>GoodsQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\ImageFind.xaml.cs">
+      <DependentUpon>ImageFind.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\logDialog.xaml.cs">
+      <DependentUpon>logDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\SaleImage.xaml.cs">
+      <DependentUpon>SaleImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\ShopBll.cs" />
+    <Compile Include="Views\EveryDayUpdate\UpGoodsData.xaml.cs">
+      <DependentUpon>UpGoodsData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\UpGoodsTemplate.xaml.cs">
+      <DependentUpon>UpGoodsTemplate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EveryDayUpdate\WeiDianUpGoods.xaml.cs">
+      <DependentUpon>WeiDianUpGoods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinanceRefund\Finance.xaml.cs">
+      <DependentUpon>Finance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinanceRefund\FinanceDetail.xaml.cs">
+      <DependentUpon>FinanceDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinanceRefund\FinanceRegister.xaml.cs">
+      <DependentUpon>FinanceRegister.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinanceRefund\FinanceRegsterList.xaml.cs">
+      <DependentUpon>FinanceRegsterList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinanceRefund\FinanceWorkStatistics.xaml.cs">
+      <DependentUpon>FinanceWorkStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FinanceRefund\Groupleader.xaml.cs">
+      <DependentUpon>Groupleader.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FxWorkOrder\WorkOrderDialog.xaml.cs">
+      <DependentUpon>WorkOrderDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FxWorkOrder\WorkOrderList.xaml.cs">
+      <DependentUpon>WorkOrderList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LeftNavView.xaml.cs">
+      <DependentUpon>LeftNavView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Live\LiveList.xaml.cs">
+      <DependentUpon>LiveList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Live\LiveSale.xaml.cs">
+      <DependentUpon>LiveSale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Live\LiveScan.xaml.cs">
+      <DependentUpon>LiveScan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Live\NewCreate.xaml.cs">
+      <DependentUpon>NewCreate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NavigationView\Navigation.xaml.cs">
+      <DependentUpon>Navigation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Photo\PhotoOut.xaml.cs">
+      <DependentUpon>PhotoOut.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Photo\PhotoOutColorDialog.xaml.cs">
+      <DependentUpon>PhotoOutColorDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Photo\PhotoOutDialog.xaml.cs">
+      <DependentUpon>PhotoOutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Print\NewPrint.xaml.cs">
+      <DependentUpon>NewPrint.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\Print\PrintLabel.xaml.cs">
+      <DependentUpon>PrintLabel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\BatchManagement.xaml.cs">
+      <DependentUpon>BatchManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\BatchOperation.xaml.cs">
+      <DependentUpon>BatchOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\BunchWare.xaml.cs">
+      <DependentUpon>BunchWare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\LockingSet.xaml.cs">
+      <DependentUpon>LockingSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\LogDialog.xaml.cs">
+      <DependentUpon>LogDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\MergeWareDialog.xaml.cs">
+      <DependentUpon>MergeWareDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\PhotoDialog.xaml.cs">
+      <DependentUpon>PhotoDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\QualityStatistics.xaml.cs">
+      <DependentUpon>QualityStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\RemarkSet.xaml.cs">
+      <DependentUpon>RemarkSet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\ShoesScan.xaml.cs">
+      <DependentUpon>ShoesScan.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\WareMeasure.xaml.cs">
+      <DependentUpon>WareMeasure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\WarePacking.xaml.cs">
+      <DependentUpon>WarePacking.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\QualityCheck\WaresSubsec.xaml.cs">
+      <DependentUpon>WaresSubsec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\AddGoods.xaml.cs">
+      <DependentUpon>AddGoods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\AddUnknownGoods.xaml.cs">
+      <DependentUpon>AddUnknownGoods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\AddUnkonwn.xaml.cs">
+      <DependentUpon>AddUnkonwn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\CsRemark.xaml.cs">
+      <DependentUpon>CsRemark.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\EditInfo.xaml.cs">
+      <DependentUpon>EditInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\FinanceJSDZ.xaml.cs">
+      <DependentUpon>FinanceJSDZ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\Loglist.xaml.cs">
+      <DependentUpon>Loglist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\PwdDialog.xaml.cs">
+      <DependentUpon>PwdDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\Refundlist.xaml.cs">
+      <DependentUpon>Refundlist.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\RefundScanReceipt.xaml.cs">
+      <DependentUpon>RefundScanReceipt.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\RefundScanReceiptRemark.xaml.cs">
+      <DependentUpon>RefundScanReceiptRemark.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\RefundScanReceiptStatistics.xaml.cs">
+      <DependentUpon>RefundScanReceiptStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\refundStatistics.xaml.cs">
+      <DependentUpon>refundStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\RegisterJSDZ.xaml.cs">
+      <DependentUpon>RegisterJSDZ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\RegisterJSDZedit.xaml.cs">
+      <DependentUpon>RegisterJSDZedit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\RegisterRefund.xaml.cs">
+      <DependentUpon>RegisterRefund.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\UnknownGoods.xaml.cs">
+      <DependentUpon>UnknownGoods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\UnpackingCheck.xaml.cs">
+      <DependentUpon>UnpackingCheck.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Refund\workStatistics.xaml.cs">
+      <DependentUpon>workStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RightContentView.xaml.cs">
+      <DependentUpon>RightContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statistics\FenxiaoKeFu.xaml.cs">
+      <DependentUpon>FenxiaoKeFu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statistics\FenxiaoPerformance.xaml.cs">
+      <DependentUpon>FenxiaoPerformance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statistics\SalesStatistics.xaml.cs">
+      <DependentUpon>SalesStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Statistics\YearDialog.xaml.cs">
+      <DependentUpon>YearDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemOperation\AuthorityAllot.xaml.cs">
+      <DependentUpon>AuthorityAllot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemOperation\BrandOperation.xaml.cs">
+      <DependentUpon>BrandOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemOperation\CategoryOperation.xaml.cs">
+      <DependentUpon>CategoryOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemOperation\CategoryPropertyEdit.xaml.cs">
+      <DependentUpon>CategoryPropertyEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemOperation\ColorOperation.xaml.cs">
+      <DependentUpon>ColorOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemOperation\GoodsAttribute.xaml.cs">
+      <DependentUpon>GoodsAttribute.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemOperation\DeptOperation.xaml.cs">
+      <DependentUpon>DeptOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemOperation\PermissionOperation.xaml.cs">
+      <DependentUpon>PermissionOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SystemOperation\UserOperation.xaml.cs">
+      <DependentUpon>UserOperation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopView.xaml.cs">
+      <DependentUpon>TopView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateUser.xaml.cs">
+      <DependentUpon>UpdateUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WareHouse\AndroidLog.xaml.cs">
+      <DependentUpon>AndroidLog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WareHouse\GoodsInStock.xaml.cs">
+      <DependentUpon>GoodsInStock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WareHouse\LogDialog.xaml.cs">
+      <DependentUpon>LogDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WareHouse\PostionUpdate.xaml.cs">
+      <DependentUpon>PostionUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WareHouse\StockIn.xaml.cs">
+      <DependentUpon>StockIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WareHouse\StockPD.xaml.cs">
+      <DependentUpon>StockPD.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WareHouse\TradeCheck.xaml.cs">
+      <DependentUpon>TradeCheck.xaml</DependentUpon>
+    </Compile>
+    <Page Include="CCMessageBox\CMessageBoxWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CCMessageBox\ControlTemplate\Activity\ActivityRed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CCMessageBox\ControlTemplate\CUpdateGoodsHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CCMessageBox\ControlTemplate\FxUpdateGoodsHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CCMessageBox\ControlTemplate\PerformancePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CCMessageBox\ControlTemplate\PrintTemplate\LabelTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CCMessageBox\ControlTemplate\UpdateGoodsTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CCMessageBox\ControlTemplate\WareLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CCMessageBox\CMessageBox.cs" />
+    <Compile Include="CCMessageBox\CMessageBoxWindow.xaml.cs">
+      <DependentUpon>CMessageBoxWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Page Include="MainShell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TestWindwos.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\BaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ComboBoxStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DalogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\DataGridStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\GlassButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\MenuTreeViewStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\ScrollViewerStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\SliderStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\TabControlStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Activity\ActivityMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Activity\ActivitySet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Activity\DMCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Activity\DmMarketingSale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Activity\TaoBaoGoodsNoSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BottomView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataCenter\DataExport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataCenter\FenXiaoData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataCenter\GoodsSync.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DataCenter\SetPrice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataCenter\SetPriceLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataCenter\StockUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataCenter\SyncGoodsDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DataCenter\TaobaoData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialog\GoodsNoDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialog\TreeDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\EveryDayUpdateCode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\FuDaiBatchOperat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\FuDaiGoodsEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\FuDaiGoodsUp.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\FuDaiTemplate\Batch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\FuDaiTemplate\FuDaiGoodsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\FuDaiTemplate\PhotoAndClass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\FuDaiTemplate\UpGoods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\FuDaiUpGoodsPreview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\GoodsQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\ImageFind.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\logDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\SaleImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\UpGoodsData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\UpGoodsTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EveryDayUpdate\WeiDianUpGoods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FinanceRefund\Finance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FinanceRefund\FinanceDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FinanceRefund\FinanceRegister.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FinanceRefund\FinanceRegsterList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FinanceRefund\FinanceWorkStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FinanceRefund\Groupleader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FxWorkOrder\WorkOrderDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FxWorkOrder\WorkOrderList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LeftNavView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Live\LiveList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Live\LiveSale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Live\LiveScan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Live\NewCreate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NavigationView\Navigation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Photo\PhotoOut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Photo\PhotoOutColorDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Photo\PhotoOutDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Print\NewPrint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Print\PrintLabel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\BatchManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\BatchOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\BunchWare.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\LockingSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\LogDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\MergeWareDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\PhotoDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\QualityStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\RemarkSet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\ShoesScan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\WareMeasure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\WarePacking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\QualityCheck\WaresSubsec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\AddGoods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\AddUnknownGoods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\AddUnkonwn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\CsRemark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\EditInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\FinanceJSDZ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\Loglist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\PwdDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\Refundlist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\RefundScanReceipt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\RefundScanReceiptRemark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\RefundScanReceiptStatistics.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Refund\refundStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\RegisterJSDZ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\RegisterJSDZedit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\RegisterRefund.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\UnknownGoods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\UnpackingCheck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Refund\workStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RightContentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Statistics\FenxiaoKeFu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Statistics\FenxiaoPerformance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Statistics\SalesStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Statistics\YearDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemOperation\AuthorityAllot.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemOperation\BrandOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemOperation\CategoryOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemOperation\CategoryPropertyEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemOperation\ColorOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemOperation\GoodsAttribute.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemOperation\DeptOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemOperation\PermissionOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SystemOperation\UserOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TopView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WareHouse\AndroidLog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WareHouse\GoodsInStock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WareHouse\LogDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WareHouse\PostionUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WareHouse\StockIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WareHouse\StockPD.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WareHouse\TradeCheck.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainShell.xaml.cs">
+      <DependentUpon>MainShell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Resource Include="templates\pcactivity.xslt" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Dll\icc\1001_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1001_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1001_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1001_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1001_N.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1001_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1001_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1001_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1001_S.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1001_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1011_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1011_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1011_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1011_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1011_N.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1011_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1011_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1011_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1011_S.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1011_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_fa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_N.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_S.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\1021_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6000.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6001_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6001_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6001_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6001_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6001_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6001_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6001_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6001_S.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6001_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6011_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6011_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6011_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6011_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6011_N.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6011_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6011_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6011_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6011_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6021_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6021_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6021_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6021_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6021_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6021_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6021_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6021_S.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6021_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6031_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6031_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6031_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6031_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6031_N.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6031_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6031_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6031_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6031_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6041_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6041_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6041_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6041_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6041_N.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6041_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6041_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6041_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6041_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6051_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6051_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6051_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6051_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6051_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6051_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6051_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6051_S.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6051_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6061_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6061_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6061_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6061_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6061_N.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6061_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6061_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6061_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6061_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6071_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6071_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6071_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6071_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6071_N.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6071_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6071_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6071_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6071_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6081_F.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6081_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6081_L.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6081_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6081_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6081_P.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6081_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6081_S.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6081_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6101_faf.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6101_lnd.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6101_ntl.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6101_ptr.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6101_std.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6171_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6171_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6171_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6171_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6181_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6191_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6201_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6211_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6221_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6231_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6241_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6251_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6261_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6271_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6281_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6291_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6301_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6311_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6321_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6331_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_FA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_fafa.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_fafs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_FS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_LA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_lnda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_lnds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_LS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_NA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_NS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_ntla.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_ntls.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_PA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_PS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_ptra.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_ptrs.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_SA.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_SS.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_stda.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\6341_stds.BIN">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\AdobeRGB.icc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\AppleRGB.icc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\ColorMatchRGB.icc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\FA.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\FS.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\LA.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\LS.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\NA.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\NS.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\PA.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\PS.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\SA.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\sRGB Color Space Profile.icm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\sRGB Profile.icc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\SS.ICC">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Dll\icc\WideGamutRGB.icc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Font\NOTOSANSHANS-MEDIUM.OTF">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Service References\UpdateGoodsServiceReference\GetGoodsServer.wsdl" />
+    <None Include="Service References\UpdateGoodsServiceReference\_9M.Work.WPF_Main.UpdateGoodsServiceReference.GetGoodsPriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UpdateGoodsServiceReference\_9M.Work.WPF_Main.UpdateGoodsServiceReference.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UpdateGoodsServiceReference\_9M.Work.WPF_Main.UpdateGoodsServiceReference.UpDatePriceResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Resource Include="Resources\QuartzMS.TTF" />
+    <Resource Include="Resources\VinylRegular.otf" />
+    <Resource Include="Resources\Entypo.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\19.png" />
+    <Resource Include="Images\20.png" />
+    <Resource Include="Images\21.png" />
+    <Resource Include="Images\22.png" />
+    <Resource Include="Images\23.png" />
+    <Resource Include="Images\24.png" />
+    <Resource Include="Images\25.png" />
+    <Resource Include="Images\btn_close.png" />
+    <Resource Include="Images\Code.jpg" />
+    <Resource Include="Images\hi_48.ico" />
+    <Resource Include="Images\loading.gif" />
+    <Resource Include="Images\loginlogo.png" />
+    <Resource Include="Images\nopic.jpg" />
+    <Resource Include="Images\Receipt.png" />
+    <Resource Include="Images\toolbtn\addBtn.png" />
+    <Resource Include="Images\toolbtn\addBtnSelected.png" />
+    <Resource Include="Images\toolbtn\allselected.png" />
+    <Resource Include="Images\toolbtn\batchBtn.png" />
+    <Resource Include="Images\toolbtn\batchBtnSelected.png" />
+    <Resource Include="Images\toolbtn\delBtn.png" />
+    <Resource Include="Images\toolbtn\delBtnSelected.png" />
+    <Resource Include="Images\toolbtn\exportBtn.png" />
+    <Resource Include="Images\toolbtn\exportBtnSelected.png" />
+    <Resource Include="Images\toolbtn\importBtn.png" />
+    <Resource Include="Images\toolbtn\importBtnSelected.png" />
+    <Resource Include="Images\toolbtn\noselected.png" />
+    <Resource Include="Images\toolbtn\refresh.png" />
+    <Resource Include="Images\toolbtn\setBtn.png" />
+    <Resource Include="Images\toolbtn\setBtnSelected.png" />
+    <Resource Include="Images\toolbtn\updateBtn.png" />
+    <Resource Include="Images\toolbtn\updateBtnSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\9M.Work.AOP\9M.Work.AOP.csproj">
+      <Project>{e82c6895-da99-4895-9a48-fd1aee1675d1}</Project>
+      <Name>9M.Work.AOP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.DbObject\9M.Work.DbObject.csproj">
+      <Project>{c090bea1-36b4-417d-beef-019bcb2d4491}</Project>
+      <Name>9M.Work.DbObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.ErpApi\9M.Work.ErpApi.csproj">
+      <Project>{11b4fa7f-b290-4480-bc70-b2c356e30631}</Project>
+      <Name>9M.Work.ErpApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.JosApi\9M.Work.JosApi.csproj">
+      <Project>{5220d2c4-16bd-402a-b9e6-69bd969bbf7b}</Project>
+      <Name>9M.Work.JosApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.Model\9M.Work.Model.csproj">
+      <Project>{80aec071-d185-4851-9f29-c94ef62d4862}</Project>
+      <Name>9M.Work.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.TopApi\9M.Work.TopApi.csproj">
+      <Project>{94821575-c6b4-4105-ab2a-88aeda73f2ea}</Project>
+      <Name>9M.Work.TopApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.Utility\9M.Work.Utility.csproj">
+      <Project>{b0f8d955-3ac1-46c3-b42f-0599426ee1ad}</Project>
+      <Name>9M.Work.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.WPF_Common\9M.Work.WPF_Common.csproj">
+      <Project>{947b7505-f5b0-4ce9-9e23-10c912518944}</Project>
+      <Name>9M.Work.WPF_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.YouZan\9M.Work.YouZan.csproj">
+      <Project>{6047827f-049b-41de-866a-a553e5d4ce66}</Project>
+      <Name>9M.Work.YouZan</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Soft.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loading1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\navigationbackgroud.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\listimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\deptimage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clotheslist.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clotheslist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Dll\DPPDLL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dll\DPPLibCom.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dll\DPPRSC.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dll\EDSDK.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dll\EdsImage.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dll\Mlib.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Dll\Ucs32P.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="templates\zt1100.xslt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\zttable950.xslt">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Resource Include="Views\NavigationView\Skin\title\1.png" />
+    <Resource Include="Views\NavigationView\Skin\title\2.png" />
+    <Resource Include="Views\NavigationView\Skin\title\3.png" />
+    <Resource Include="Views\NavigationView\Skin\title\4.png" />
+    <Resource Include="Views\NavigationView\Skin\title\5.png" />
+    <Resource Include="Views\NavigationView\Skin\bg\background_mainwnd.png" />
+    <Resource Include="Views\NavigationView\Skin\bg\default.jpg" />
+    <Resource Include="Views\NavigationView\Skin\bg\enter.png" />
+    <Resource Include="Views\NavigationView\Skin\bg\logo.png" />
+    <Resource Include="Views\NavigationView\Skin\bg\mover.png" />
+    <Resource Include="Views\NavigationView\Skin\ico\ico_dsmain.png" />
+    <Resource Include="Views\NavigationView\Skin\ico\ico_Examine.png" />
+    <Resource Include="Views\NavigationView\Skin\ico\ico_softmgr.png" />
+    <Resource Include="Views\NavigationView\Skin\ico\ico_SpeedupOpt.png" />
+    <Resource Include="Views\NavigationView\Skin\ico\ico_SysRepair.png" />
+    <Resource Include="Views\NavigationView\Skin\ico\ico_TraceCleaner.png" />
+    <Resource Include="Views\NavigationView\Skin\ico\ico_VulRepair.png" />
+    <Resource Include="Views\NavigationView\Skin\bg\bd1.jpg" />
+    <Resource Include="Images\print.png" />
+    <Resource Include="Images\revoke.png" />
+    <Resource Include="Images\photo.jpg" />
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+    <Resource Include="Resources\Entypo-license.txt" />
+    <Resource Include="Images\colorlist.jpg" />
+    <Resource Include="Images\Navigation\Sheji.png" />
+    <Resource Include="Images\Navigation\ShiChang.png" />
+    <Resource Include="Images\Navigation\Zhijian.png" />
+    <Resource Include="Images\jiantou.png" />
+    <None Include="Service References\UpdateGoodsServiceReference\GetGoodsServer.disco" />
+    <None Include="Service References\UpdateGoodsServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\UpdateGoodsServiceReference\configuration.svcinfo" />
+    <None Include="Service References\UpdateGoodsServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Resource Include="Images\selected.png" />
+    <Resource Include="Images\remark.png" />
+    <Resource Include="Images\flag.ico" />
+    <Resource Include="Images\defaultFlag.ico" />
+    <Content Include="Print\9m.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Print\9mg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Print\9mhight.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Print\mezingr.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Print\washing.tif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Success.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Sounds\Error.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="templates\AinoEverydayUpdate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\cx1100.xslt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\EverydayUpdateForBShop.xslt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\EverydayUpdateForCShop.xslt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="templates\JdEverydayUpdate.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\UpdateGoodsServiceReference\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,153 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Activity.ActivitySet"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9M.Work.WPF_Main.Views.Activity"
+             mc:Ignorable="d" 
+             Style="{StaticResource DialogViewStyle}"
+              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             >
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Label>店铺：</Label>
+                <ComboBox Name="com_shop" Width="120"></ComboBox>
+                <Label Margin="5,0,0,0">活动类型：</Label>
+                <ComboBox Name="com_type" Width="100"></ComboBox>
+                <Label Margin="5,0,0,0">活动名称：</Label>
+                <TextBox Name="tb_typename" Width="80" VerticalContentAlignment="Center"></TextBox>
+                <Label Margin="10,0,0,0">动态活动：</Label>
+                <RadioButton Name="radio_activity">是</RadioButton>
+                <RadioButton Margin="10,0,0,0" IsChecked="True" >否</RadioButton>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                <Label>活动时间：</Label>
+                <Controls:DateTimePicker  Culture="zh-CN" Name="date_start" Width="163"/>
+
+                <Label >~</Label>
+                <Controls:DateTimePicker  Culture="zh-CN"  Name="date_end" Width="163"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Background="Gray" >
+                <Label   FontWeight="Bold" >活动设置</Label>
+                <Label  >【活动前后】</Label>
+                <Label  Foreground="RoyalBlue">只能动态活动生效</Label>
+            </StackPanel>
+            <Border  BorderThickness="2" BorderBrush="Gray" Height="160" Width="700" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical">
+                        <Label Margin="0,6,0,0">邮费：</Label>
+                        <Label Margin="0,7,0,0">会员折扣：</Label>
+                        <Label Margin="0,6.5,0,0">价格：</Label>
+                        <Label Margin="0,6.5,0,0">标题：</Label>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Width="120" Margin="10,0,0,0" Name="Sta_Start">
+                        <WrapPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                            <ComboBox Width="100"  SelectedIndex="0">
+                                <ComboBoxItem>不包邮</ComboBoxItem>
+                                <ComboBoxItem>包邮</ComboBoxItem>
+                            </ComboBox>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                            <ComboBox Width="100" SelectedIndex="0">
+                                <ComboBoxItem>不打折</ComboBoxItem>
+                                <ComboBoxItem>打折</ComboBoxItem>
+                            </ComboBox>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                            <ComboBox Width="100"  SelectedIndex="0">
+                                <ComboBoxItem>不修改</ComboBoxItem>
+                                <ComboBoxItem>修改</ComboBoxItem>
+                            </ComboBox>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                            <ComboBox Width="100"  SelectedIndex="0" Name="com_title">
+                                <ComboBoxItem>不修改</ComboBoxItem>
+                                <ComboBoxItem>修改</ComboBoxItem>
+                            </ComboBox>
+                            
+                        </WrapPanel>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Width="300">
+                        <Border BorderThickness="1" CornerRadius="3" BorderBrush="Gray" Height="30" Margin="20,120,0,0">
+                            <WrapPanel Orientation="Horizontal" >
+                                <Label>智能添加标题</Label>
+                                <Label Foreground="Red">(自动替换【】[])</Label>
+                                <TextBox Width="70" VerticalContentAlignment="Center" Name="tb_appendtitle"></TextBox>
+                            </WrapPanel>
+                        </Border>
+                    </StackPanel>
+                    <Line X1="0" Y1="196" Stroke="Gray" StrokeThickness="2" Margin="2,0,0,0"></Line>
+                    <Label VerticalContentAlignment="Center" Width="43" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center" Margin="3,0,0,0">=></Label>
+                    <Line X1="0" Y1="196" Stroke="Gray" StrokeThickness="2" Margin="2,0,0,0"></Line>
+                    <StackPanel Orientation="Vertical" Width="130" Margin="10,0,0,0" Name="Sta_End">
+                        <WrapPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                            <ComboBox Width="100"  SelectedIndex="0">
+                                <ComboBoxItem>不包邮</ComboBoxItem>
+                                <ComboBoxItem>包邮</ComboBoxItem>
+                            </ComboBox>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                            <ComboBox Width="100"  SelectedIndex="0">
+                                <ComboBoxItem>不打折</ComboBoxItem>
+                                <ComboBoxItem>打折</ComboBoxItem>
+                            </ComboBox>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                            <ComboBox Width="100"  SelectedIndex="0">
+                                <ComboBoxItem>不修改</ComboBoxItem>
+                                <ComboBoxItem>还原</ComboBoxItem>
+                            </ComboBox>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0,10,0,0" >
+                            <ComboBox Width="100"  SelectedIndex="0">
+                                <ComboBoxItem>不修改</ComboBoxItem>
+                                <ComboBoxItem>还原</ComboBoxItem>
+                            </ComboBox>
+                        </WrapPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <StackPanel Orientation="Horizontal" Margin="0,20,0,0" Background="Gray" >
+                <Label   FontWeight="Bold" >活动商品</Label>
+            </StackPanel>
+            <Border  BorderThickness="2" BorderBrush="Gray" Height="260" Width="700" HorizontalAlignment="Left">
+                <StackPanel Orientation="Vertical">
+                    <Label Foreground="Red">改价只能通过EXCEL导入 EXCEL格式为【款号,原价,原标题,活动价】四列</Label>
+                    <WrapPanel Orientation="Horizontal">
+                        <Button Style="{StaticResource importButton}" Width="65" Click="Btn_CommandClick" Tag="1">Excel导入</Button>
+                        <Button Style="{StaticResource batchButton}" Width="60" Margin="20,0,0,0" Click="Btn_CommandClick" Tag="2">淘宝导入</Button>
+                        <Button Style="{StaticResource delButton}" Width="47" Margin="20,0,0,0" Click="Btn_CommandClick" Tag="6">删除款</Button>
+                        <Button Style="{StaticResource delButton}" Width="70" Margin="20,0,0,0" Click="Btn_CommandClick" Tag="3">删除所有款</Button>
+
+                    </WrapPanel>
+                    <WrapPanel Margin="0,10,0,0">
+                        <DataGrid Width="680" Height="150" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="All" Style="{DynamicResource AzureDataGrid}" RenderOptions.ClearTypeHint="Enabled" 
+                          TextOptions.TextFormattingMode="Display" x:Name="ActivityGoodsGridlist" >
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="款号" Width="100" Binding="{Binding GoodsNo}" ></DataGridTextColumn>
+                                <DataGridTextColumn Header="原价" Width="65" Binding="{Binding Defaultprice}" ></DataGridTextColumn>
+                                <DataGridTextColumn Header="活动价" Width="65" Binding="{Binding Activityprice}" ></DataGridTextColumn>
+                                <DataGridTextColumn Header="原标题" Width="auto" Binding="{Binding Defaulttitle}" ></DataGridTextColumn>
+                                <DataGridTextColumn Header="活动标题" Width="auto" Binding="{Binding Activittitle}" ></DataGridTextColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </WrapPanel>
+                    <WrapPanel Margin="0,10,0,0">
+                        <Label>数量：</Label>
+                        <Label Foreground="Red" Name="lab_count">0</Label>
+                    </WrapPanel>
+                </StackPanel>
+            </Border>
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Style="{StaticResource GlassButton}"  Background="Green" Width="50" Height="50" Margin="0,0,0,0" Click="Btn_CommandClick" Tag="4" >
+                    <Label Name="btn_Submit" Content="确定" FontSize="18" Foreground="White" FontWeight="Bold"></Label>
+                </Button>
+                <Button Style="{StaticResource GlassButton}"  Background="Red" Width="50" Height="50" Margin="20,0,0,0" Click="Btn_CommandClick" Tag="5" >
+                    <Label Name="btn_Canel" Content="取消" FontSize="18" Foreground="White" FontWeight="Bold"></Label>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

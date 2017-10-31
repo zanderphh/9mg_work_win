@@ -1,0 +1,251 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.QualityCheck.WaresSubsec"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:PubControl ="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common" 
+             mc:Ignorable="d" 
+            >
+    <UserControl.Resources>
+        <RoutedUICommand x:Key="FaskDemo" Text="FaskDemo" />
+    </UserControl.Resources>
+    <UserControl.InputBindings>
+        <KeyBinding Gesture="Ctrl+P" Command="{StaticResource FaskDemo }"/>
+    </UserControl.InputBindings>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{StaticResource FaskDemo}" CanExecute="CommandBinding_CanExecute"/>
+    </UserControl.CommandBindings>
+    <Grid>
+        <!--功能选择-->
+        <Border BorderBrush="Black" BorderThickness="1" ClipToBounds="True" SnapsToDevicePixels="True" CornerRadius="3">
+            <TabControl Style="{DynamicResource TabControlStyle2}" Name="TabControlIt">
+                <TabItem Header="看图找款" Style="{DynamicResource TabItemStyle2}" HorizontalAlignment="Left" Width="70">
+                    <Border  BorderBrush="LightGray" BorderThickness="2" CornerRadius="4"  VerticalAlignment="Top">
+                        <Viewbox>
+                            <WrapPanel >
+                                <!--看图找款-->
+                                <WrapPanel Orientation="Horizontal"  >
+                                    <!--左侧图片-->
+                                    <!--右侧选项-->
+                                    <!--左侧图片-->
+
+                                    <PubControl:ImagePanel SelectedEvent="True" TitleFontSize="22"  TransverseCount="6" UprightCount="2" x:Name="ImageBox" Width="1650" Height="820"  MarginRow ="30" MarginColumn="20"  ImageCursor="Hand" ImageUp="True" BigImage ="True"/>
+                                    <WrapPanel   Width="200" Orientation="Vertical" >
+                                        <WrapPanel>
+                                            <Label Content="批次:"/>
+                                            <ComboBox Width="140" x:Name="com_querybatch"/>
+                                        </WrapPanel>
+
+                                        <WrapPanel Margin="0,20,0,0">
+                                            <Label Content="类目:"/>
+                                            <ComboBox Width="100" x:Name="com_querycategory" SelectionChanged="com_querycategory_SelectionChanged"/>
+                                        </WrapPanel>
+                                        <WrapPanel Margin="0,20,0,0">
+                                            <Label Content="吊牌:"/>
+                                            <TextBox Width="100" x:Name="tb_fyitext" KeyDown="tb_fyitext_KeyDown"/>
+                                        </WrapPanel>
+                                        <WrapPanel Margin="0,20,0,0">
+                                            <Label Content="选择特征:"  Foreground="Fuchsia"/>
+                                            <WrapPanel x:Name="wrap_querytedie" Orientation="Vertical" />
+                                        </WrapPanel>
+                                        <WrapPanel Margin="0,20,0,0" HorizontalAlignment="Right">
+                                            <!--<Button Style="{StaticResource allselectedButton}" Content="搜索" Width="60" Click="Btn_QueryImage"></Button>-->
+                                            <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="5" Width="60" Height="30">
+                                                <Button Content="上页" Click="Btn_PageUp" x:Name="Btn_Up"/>
+                                            </Border>
+
+                                            <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="5" Width="60" Height="30">
+                                                <Button Content="下页" Click="Btn_PageDown" x:Name="Btn_Next"/>
+                                            </Border>
+                                            <Button Style="{StaticResource GlassButton}"  Background="Red"   Height="55" Width="55" Click="Btn_QueryImage" >
+                                                <Label Content="搜索"  FontSize="15" Foreground="White" FontWeight="Bold"/>
+                                            </Button>
+
+                                        </WrapPanel>
+                                        <Button Margin="0,20,0,0" Style="{StaticResource ButtonBlackStyle}" Content="删除" Width="150" Click="Button_Click_1"/>
+                                    </WrapPanel>
+                                </WrapPanel>
+                            </WrapPanel>
+                        </Viewbox>
+                    </Border>
+                </TabItem>
+                <TabItem Header="新建款号"  Style="{DynamicResource TabItemStyle2}">
+                    <TabItem.Resources>
+                        <RoutedUICommand x:Key="createNewTakePhono" Text="createNew takePhono" />
+                    </TabItem.Resources>
+                    <TabItem.InputBindings>
+                        <KeyBinding Gesture="F6"  Command="{StaticResource createNewTakePhono}"></KeyBinding>
+                    </TabItem.InputBindings>
+                    <TabItem.CommandBindings>
+                        <CommandBinding Command="{StaticResource createNewTakePhono}" Executed="CommandBinding_createNewTakePhoto_Executed"/>
+                    </TabItem.CommandBindings>
+                    <Border  BorderBrush="LightGray" BorderThickness="2"  CornerRadius="4"  >
+                        <WrapPanel  Name="ActivationPanel" Orientation="Vertical" >
+                            <!--新建款号-->
+                            <Label  x:Name="InitText" Foreground="Red" />
+                            <WrapPanel Orientation="Horizontal"  Visibility="Visible">
+
+                                <!--左侧图片-->
+                                <WrapPanel  VerticalAlignment="Top" Orientation="Vertical">
+
+                                    <Image Width="300" Height="450" Source="/9M.Work.WPF_Main;component/Images/nopic.jpg" Stretch="Fill" Name="Image_Box"/>
+                                    <!--<Button Style="{StaticResource GlassButton}"  Background="Red"   Height="80" Width="80" Click="Button_Click" Tag="3">
+                                        <Label Content="拍照" FontSize="20" Foreground="White" FontWeight="Bold"></Label>
+                                    </Button>-->
+                                    <Button Style="{StaticResource ButtonRedStyle}" Height="40" Content="拍照" Click="Button_Click" Tag="3" Margin="0,10,0,0"/>
+                                </WrapPanel>
+                                <!--右侧数据-->
+                                <WrapPanel Margin="100,0,0,0" Orientation="Vertical">
+                                    <WrapPanel>
+                                        <Label Content="批次:"></Label>
+                                        <ComboBox  Width="180" Name="Com_Batch" SelectionChanged="Com_Batch_SelectionChanged" DropDownClosed="Com_Batch_DropDownClosed">
+                                        </ComboBox>
+                                    </WrapPanel>
+                                    <WrapPanel VerticalAlignment="Center" Margin="0,10,0,0" Name="rad_Season">
+                                        <Label Content="选择季节:"></Label>
+                                        <RadioButton Content="春" VerticalAlignment="Center" Margin="10,0,0,0" Checked="RadioButton_Checked"></RadioButton>
+                                        <RadioButton Content="夏" VerticalAlignment="Center" Margin="10,0,0,0" Checked="RadioButton_Checked"></RadioButton>
+                                        <RadioButton Content="秋" VerticalAlignment="Center" Margin="10,0,0,0" Checked="RadioButton_Checked"></RadioButton>
+                                        <RadioButton Content="冬" VerticalAlignment="Center" Margin="10,0,0,0" Checked="RadioButton_Checked"></RadioButton>
+                                    </WrapPanel>
+                                    <WrapPanel Margin="0,10,0,0">
+                                        <Label Content="选择类目:"></Label>
+                                        <ComboBox  Width="130" Name="Com_category" SelectionChanged="Com_category_SelectionChanged"  DropDownClosed="Com_category_DropDownClosed">
+                                        </ComboBox>
+                                    </WrapPanel>
+                                    <WrapPanel Margin="0,10,0,0">
+                                        <Label Content="定义颜色:"></Label>
+                                        <ComboBox  Width="150" IsEditable ="True" Style="{StaticResource CustomItemsControl}" Name="Com_Color" VerticalContentAlignment="Center">
+                                        </ComboBox>
+                                    </WrapPanel>
+                                    <WrapPanel Margin="0,10,0,0">
+                                        <Label Content="定义厚度:"></Label>
+                                        <ComboBox  Width="150" IsEditable ="True"  Name="Com_HouDu" VerticalContentAlignment="Center" SelectedIndex="0" >
+                                            <ComboBoxItem></ComboBoxItem>
+                                            <ComboBoxItem>薄</ComboBoxItem>
+                                            <ComboBoxItem>适中</ComboBoxItem>
+                                            <ComboBoxItem>厚</ComboBoxItem>
+                                        </ComboBox>
+                                    </WrapPanel>
+                                    <WrapPanel Margin="0,10,0,0">
+                                        <!--<Label Content="内部号:"></Label>
+                                        <TextBox Width="60" Name="tb_WareGroupId"></TextBox>-->
+                                        <Label Content="原吊牌:"></Label>
+                                        <TextBox Width="100" Name="tb_FyiCode"></TextBox>
+                                    </WrapPanel>
+                                    <WrapPanel Margin="0,10,0,0">
+                                        <Label Content="款号:"></Label>
+                                        <TextBox Width="100" Name="tb_WareNo" IsEnabled="False" Opacity="0.4"></TextBox>
+                                        <Button Margin="10,0,0,0" Style="{StaticResource refreshButton}" Content="自动匹配" Width="60" Click="Button_Click" Tag="0"></Button>
+                                    </WrapPanel>
+
+
+                                    <WrapPanel Margin="0,15,0,0">
+                                        <Label Content="品名:"></Label>
+                                        <TextBox Width="130" Name="tb_WareName" IsEnabled="False" Opacity="0.4"></TextBox>
+                                    </WrapPanel>
+                                    <WrapPanel Margin="0,15,0,0">
+                                        <Label Content="年份:"></Label>
+                                        <TextBox Width="80" Name="tb_Year" IsEnabled="False" Opacity="0.4"></TextBox>
+                                    </WrapPanel>
+                                    <WrapPanel Margin="0,15,0,0">
+                                        <Label Content="价格:"></Label>
+                                        <TextBox Width="80" Name="tb_Price"  Opacity="0.4" Text="0"></TextBox>
+                                    </WrapPanel>
+                                    <Label Content="定义特征:" Margin="0,10,0,0" Foreground="Fuchsia"></Label>
+                                    <WrapPanel Name="DeDianPanel" Margin="0,10,0,0" Height="60">
+
+                                    </WrapPanel>
+                                    <WrapPanel >
+                                        <Label Content="备注:"></Label>
+                                        <TextBox Width="180" Height="60"  TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto"  Name="rich_Remark"/>
+                                        <!--<RichTextBox Width="150" Height="60" Name="rich_Remark"></RichTextBox>-->
+                                    </WrapPanel>
+                                    <WrapPanel Margin="65,10,0,0" VerticalAlignment="Bottom">
+                                        <Button Width="90" Content="确定" Style="{DynamicResource AccentedSquareButtonStyle}" Click="Button_Click" Tag="1"></Button>
+                                        <Button Margin="10,0,0,0" Width="40" Content="取消" Style="{DynamicResource AccentedSquareButtonStyle}" Click="Button_Click" Tag="2"></Button>
+                                    </WrapPanel>
+                                </WrapPanel>
+                            </WrapPanel>
+
+                        </WrapPanel>
+                    </Border>
+                </TabItem>
+                <TabItem Header="规格详情" Style="{DynamicResource TabItemStyle2}" >
+                    <TabItem.Resources>
+                        <RoutedUICommand x:Key="specTakePhono" Text="spec takePhono" />
+                    </TabItem.Resources>
+                    <TabItem.InputBindings>
+                        <KeyBinding Gesture="F6"  Command="{StaticResource specTakePhono}"></KeyBinding>
+                    </TabItem.InputBindings>
+                    <TabItem.CommandBindings>
+                        <CommandBinding Command="{StaticResource specTakePhono}" Executed="CommandBinding_specTakePhoto_Executed"/>
+                    </TabItem.CommandBindings>
+                    <Border  BorderBrush="LightGray" BorderThickness="2"  CornerRadius="4" VerticalAlignment="Top">
+                        <Viewbox>
+                            <!--款号详情-->
+                            <WrapPanel Orientation="Vertical" >
+                                <!--上侧图片-->
+                                <WrapPanel  VerticalAlignment="Top" Orientation="Horizontal" >
+                                    <StackPanel Orientation="Vertical">
+                                        <Image Width="300" Height="400" Source="/9M.Work.WPF_Main;component/Images/nopic.jpg" Stretch="Fill" Name="img_specbox" VerticalAlignment="Top" HorizontalAlignment="Center"></Image>
+                                        <Border  BorderBrush="Tan" Margin="20,10,0,0">
+                                            <StackPanel Orientation="Vertical" Name="Stack_PeiShi" >
+                                                <RadioButton Content="有毛领" FontSize="40"></RadioButton>
+                                                <RadioButton Content="有腰带" FontSize="40" Margin="0,20,0,0"></RadioButton>
+                                                <RadioButton Content="有配饰" FontSize="40" Margin="0,20,0,0"></RadioButton>
+                                            </StackPanel>
+
+                                        </Border>
+                                        <Button Name="Btn_PeiShi" Content="刷新配饰" Margin="140,20,0,0" Style="{DynamicResource AccentedSquareButtonStyle}" Click="Btn_AddPeiShi"  Height="80" Width="140" FontSize="25" ></Button>
+                                    </StackPanel>
+
+                                    <PubControl:ImagePanel  TitleFontSize="22"  SelectedEvent="True"  Height="750" Width="1500" TransverseCount="6" UprightCount="2" MarginRow="20" MarginColumn="20" Name="specimagepanel" Margin="20,0,0,0" ImageUp="True" BigImage ="False"></PubControl:ImagePanel>
+
+                                </WrapPanel>
+                                <!--下侧按钮-->
+                                <WrapPanel Orientation="Horizontal" Margin="30,10,0,0" Height="50" >
+                                    <Label Content="选择颜色:" FontSize="14" VerticalAlignment="Center"></Label>
+                                    <ComboBox VerticalContentAlignment="Center" Name="com_speccolorlist" Width="130" IsEditable ="True" Style="{StaticResource CustomItemsControl}" >
+
+                                    </ComboBox>
+                                    <Button Content="拍照" Width="90" Margin="35,0,0,0" Style="{StaticResource ButtonRedStyle}" Click="Btn_SpecClick" Tag="1"></Button>
+                                    <!--<Button Content="添加多规格" Style="{StaticResource addButton}" Width="70" Margin="30,0,0,0" Click="Btn_SpecClick" Tag="2"></Button>-->
+
+                                    <Button Style="{StaticResource GlassButton}"  Background="Green"  Margin="30,0,0,0" Height="40" Width="40" Click="Btn_SpecClick" Tag="2" >
+                                        <Label Name="btn_Canel" Content="添加" FontSize="13" Foreground="White" FontWeight="Bold"></Label>
+                                    </Button>
+                                    <Button Style="{StaticResource GlassButton}"  Background="Fuchsia"  Margin="30,0,0,0" Height="40" Width="80" Click="Btn_SpecClick" Tag="8" >
+                                        <Label Name="btn_update" Content="修改照片" FontSize="13" Foreground="White" FontWeight="Bold"></Label>
+                                    </Button>
+                                    <Button Style="{StaticResource GlassButton}"  Background="Red"  Margin="30,0,0,0" Height="40" Width="40" Click="Btn_SpecClick" Tag="4" >
+                                        <Label Name="btn_Del" Content="删除" FontSize="13" Foreground="White" FontWeight="Bold"></Label>
+                                    </Button>
+
+                                    <Button Style="{StaticResource GlassButton}"  Background="Blue"  Margin="30,0,0,0" Height="40" Width="40" Click="Btn_SpecClick" Tag="5" >
+                                        <Label  Content="备注" FontSize="13" Foreground="White" FontWeight="Bold"></Label>
+                                    </Button>
+                                </WrapPanel>
+
+                                <WrapPanel HorizontalAlignment="Right" Margin="0,-40,0,0" >
+                                    <WrapPanel>
+                                        <Label>输入款号:</Label>
+                                        <TextBox Width="100" Name="tb_query" KeyDown="tb_query_KeyDown"></TextBox>
+                                        <Button Content="查询" Style="{StaticResource ButtonRedStyle}" Width="70" Click="Btn_QuerySpec"></Button>
+                                    </WrapPanel>
+                                    <Label Content="款号:" FontSize="15" Margin="40,0,0,0" ></Label>
+                                    <Label FontSize="15" Name="lab_specwareno" Width="100"></Label>
+                                    <Label Content="原吊牌:" FontSize="15" Margin="20,0,0,0" ></Label>
+                                    <Label FontSize="15" Name="lab_fyi" Width="150"></Label>
+                                    <Button Content="打印款号" Style="{StaticResource ButtonBlackStyle}" Width="100"  Click="Btn_SpecClick" Tag="3"></Button>
+                                    <Button Content="打印样品" Style="{StaticResource ButtonBlackStyle}" Width="100"  Click="Btn_SpecClick" Tag="6" Margin="20,0,0,0"></Button>
+                                    <Button Content="双打" Style="{StaticResource ButtonBlackStyle}" Width="100"  Click="Btn_SpecClick" Tag="7" Margin="20,0,0,0"></Button>
+                                </WrapPanel>
+                            </WrapPanel>
+                        </Viewbox>
+                    </Border>
+                </TabItem>
+            </TabControl>
+        </Border>
+    </Grid>
+</UserControl>

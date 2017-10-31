@@ -1,0 +1,68 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Refund.RefundScanReceipt"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:localPager="clr-namespace:_9M.Work.WPF_Common.Controls.Pagination;assembly=9M.Work.WPF_Common" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
+    <Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="5 0 0 0 " Grid.Row="0">
+                <TextBlock Text=" 日期范围选择" Margin="15 0 0 0" VerticalAlignment="Center"></TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
+                    <DatePicker Name="start" Height="30"></DatePicker>
+                    <Label>~</Label>
+                    <DatePicker Name="end" Height="30"></DatePicker>
+                </StackPanel>
+                <TextBlock Text=" 查询快递单号" Margin="15 0 0 0" VerticalAlignment="Center"></TextBlock>
+                <TextBox Width="120" x:Name="tbExpressNo" Height="30"  Margin="5 0 0 0"></TextBox>
+                <TextBlock Text=" 签收人" Margin="15 0 0 0" VerticalAlignment="Center"></TextBlock>
+                <TextBox Width="120" x:Name="tbOperator" Height="30"  Margin="5 0 0 0"></TextBox>
+                <Button  Content="搜索" FontSize="12" Margin="15 5 5 5" Width="80" Click="Button_Click"></Button>
+                <Button  Content="统计" FontSize="12" Margin="15 5 5 5" Width="80" Click="BtnStatistics_Click"></Button>
+            </StackPanel>
+            <DataGrid IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="All" Style="{DynamicResource AzureDataGrid}" RenderOptions.ClearTypeHint="Enabled" 
+                          TextOptions.TextFormattingMode="Display" x:Name="LogGridlist"  Margin="0 0 0 0" Grid.Row="1">
+                <DataGrid.ContextMenu>
+                    <ContextMenu  StaysOpen="True">
+                        <MenuItem Header="编辑备注" Click="btn_editRemark"></MenuItem>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="编号" Binding="{Binding id}"  Visibility="Collapsed"/>
+                    <DataGridTextColumn Header="快递单号" Binding="{Binding scanNo}"  Width="130"/>
+                    <DataGridTextColumn Header="签收人" Binding="{Binding scanOpt}" Width="80"/>
+                    <DataGridTextColumn Header="签收时间" Binding="{Binding scanTime,StringFormat=yyyy-MM-dd HH:mm:ss}" Width="160"/>
+                    <DataGridTextColumn Header="备注说明" Binding="{Binding remark}" MinWidth="260"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" >
+               
+                <localPager:NextPageControl  x:Name="nextPageControl1"   VerticalAlignment="Top" 
+                                             TotalPage="{Binding Path=TotalPage,Mode=TwoWay}" PageSize="{Binding Path=PageSize,Mode=TwoWay}" CurrentPage="{Binding Path=CurrentPage,Mode=TwoWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger  EventName="PageChanged">
+                            <i:InvokeCommandAction  Command="{Binding Path=NextPageSearchCommand, Mode=TwoWay}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </localPager:NextPageControl>
+                <Label Name="labTotalCount" Margin="10 0 10 0"></Label>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5 0 0 0 " Grid.Row="3">
+                <TextBlock Text=" 快递单扫描" Margin="5 0 0 0" VerticalAlignment="Center" FontSize="16"></TextBlock>
+                <TextBox Width="228" x:Name="tbScanExpressNo" Height="30"  Margin="5 0 0 0" KeyDown="tbScanExpressNo_KeyDown"></TextBox>
+                <CheckBox Content="员工包裹" Margin="10 0 0 0" Name="ckIsEmployee"></CheckBox>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.WareHouse.TradeCheck"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+            >
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Border BorderBrush="LightGray" BorderThickness="1" Grid.Row="0" CornerRadius="4" >
+                <StackPanel Orientation="Horizontal">
+                    <Label  FontWeight="Bold">查询单号</Label>
+                    <TextBox Style="{DynamicResource SearchMetroTextBox}"  Width="200" Margin="20,0,0,0"
+                             Controls:TextBoxHelper.Watermark="输入单号"
+                             Controls:TextBoxHelper.ButtonCommand="{Binding QueryCommand, Mode=OneWay}"
+                             VerticalContentAlignment="Center" Name="tb_Billd" KeyDown="tb_Billd_KeyDown"
+                             />
+                    <TextBox Style="{DynamicResource SearchMetroTextBox}"  Width="140" Margin="40,0,0,0"
+                             Controls:TextBoxHelper.Watermark="扫瞄条码"
+                             Controls:TextBoxHelper.ButtonCommand="{Binding QueryCommandCode, Mode=OneWay}"
+                             VerticalContentAlignment="Center" Name="tb_GoodsNoAll" KeyDown="tb_GoodsNoAll_KeyDown"
+                             />
+                    <Button   Background="Green" Margin="180,0,0,0" Style="{StaticResource GlassButton}" Height="30" Width="60"  Click="Button_KeepTrade_Cache" >
+                        <Label Content="完成校验" FontSize="11" Foreground="White" FontWeight="Bold"></Label>
+                    </Button>
+                </StackPanel>
+            </Border>
+            <DataGrid  ItemsSource ="{Binding ''}" x:Name="BatchGrid" IsReadOnly="True"
+            		AutoGenerateColumns="False" 
+            		GridLinesVisibility="All"   Style="{DynamicResource AzureDataGrid}"
+            		RenderOptions.ClearTypeHint="Enabled"
+            		TextOptions.TextFormattingMode="Display" CanUserSortColumns="False"
+            		Height="700" Margin="0,20,0,0" EnableColumnVirtualization="False" EnableRowVirtualization="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn FontSize="20" Header="款号" Width="130" Binding="{Binding GoodsNo}" />
+                    <DataGridTextColumn FontSize="20" Header="附加码" Width="100" Binding="{Binding SpecCode}"  />
+                    <DataGridTextColumn FontSize="20" Header="规格" Width="200" Binding="{Binding SpecName}"  />
+                    <DataGridTextColumn FontSize="20"  Header="主货位" Width="150" Binding="{Binding P_postion}"/>
+                    <DataGridTextColumn FontSize="20"  Header="暂存位" Width="150" Binding="{Binding F_postion}"/>
+                    <DataGridTextColumn FontSize="20" Header="数量" Width="60" Binding="{Binding Sellcount}"  />
+                    <DataGridTemplateColumn Header="校验量" Width="70">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Name="tb_xiaoyan" Text="{Binding Null}" FontSize="20" ></TextBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Activity.DMCreate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WT="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common" 
+             xmlns:converter="clr-namespace:_9M.Work.WPF_Main.Infrastrcture"
+             xmlns:converterParam="clr-namespace:_9M.Work.WPF_Common.ValueObjects;assembly=9M.Work.WPF_Common"
+             xmlns:wpfspark="clr-namespace:WPFSpark;assembly=WPFSpark"
+             xmlns:ecv="clr-namespace:_9M.Work.WPF_Main.Infrastrcture"
+             mc:Ignorable="d" 
+             Style="{StaticResource DialogViewStyle}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="120"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+                <ColumnDefinition  Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="验证码" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            <PasswordBox Grid.Column="1" Width="110" Height="30" x:Name="txtCode"></PasswordBox>
+            <Button Grid.Column="2" Height="35" Width="80" Content="验证" FontSize="14" Click="btn_check"></Button>
+        </Grid>
+        <Grid Grid.Row="1" Visibility="Collapsed" x:Name="gConfirm">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="80"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition  Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" Content="金额" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                <TextBox Grid.Column="1" Height="30"  x:Name="txtMoney"></TextBox>
+                <Label Grid.Column="2" Content="发放数量" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                <TextBox Grid.Column="3" Height="30"  x:Name="txtNumber"></TextBox>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button Grid.Column="2" Height="35" Width="80" Content="确定打印" FontSize="14" Click="btn_print"></Button>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

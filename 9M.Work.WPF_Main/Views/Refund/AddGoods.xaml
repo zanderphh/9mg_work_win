@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Refund.AddGoods"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WT="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common" 
+             mc:Ignorable="d" 
+             xmlns:wpfspark="clr-namespace:WPFSpark;assembly=WPFSpark"
+             Style="{StaticResource DialogViewStyle}" Width="1120" Height="740">
+    <UserControl.Resources>
+        <DataTemplate x:Key="ImagePanel">
+            <Border BorderThickness="2" BorderBrush="#B9C0C7" Margin="0 5 0 5" Width="200">
+                <StackPanel Margin="5 5 5 5">
+                    <Image Source="{Binding imgUrl}" Height="180" Width="180" ToolTip="右键编辑信息"></Image>
+                    <StackPanel Orientation="Horizontal" Height="35" Margin="0 10 0 0">
+                        <TextBlock Text="{Binding goodsno}"  />
+                        <TextBlock Text="{Binding specName}"  />
+                        <TextBlock Text="{Binding categoryName}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Height="35" HorizontalAlignment="Center" Margin="0 5 0 5">
+                        <Label Content="{Binding dColumn1}" HorizontalAlignment="Center" Height="35" Width="80" Margin="10 0 0 0" FontSize="14"></Label>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.RowSpan="3" Orientation="Horizontal" HorizontalAlignment="Center"  Name="loading" >
+            <wpfspark:SprocketControl HorizontalAlignment="Center" Margin="0,0,0,0"  VerticalAlignment="Center" TickColor="#35c4ff" Width="50" Height="50" TickWidth="3" 
+                                      TickCount="40" StartAngle="-90" IsIndeterminate="True" Interval="30" Visibility="Visible"/>
+            <TextBlock Text="正在处理中。。。" VerticalAlignment="Center" FontSize="14" FontWeight="Bold" Foreground="#35c4ff" x:Name="loadingText"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" Orientation="Horizontal">
+            <WT:PerfectWateMarkTextBox  Width="260" WateMark="扫描商品搜索" x:Name="txtScan" HorizontalAlignment="Left" KeyDown="txtScan_KeyDown"></WT:PerfectWateMarkTextBox>
+            <CheckBox Checked="CheckBox_Checked" Content="显示订单全部商品" Margin="10 0 0 0" x:Name="ckShow"></CheckBox>
+        </StackPanel>
+        <ListBox Grid.Row="1" ItemTemplate="{StaticResource ImagePanel}" x:Name="LVGoods" SelectedValue="{Binding DataContext.selectedRefundDetailMode,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" 
+                 SelectionMode="Single">
+            <ListBox.ContextMenu>
+                <ContextMenu  StaysOpen="True">
+                    <MenuItem Header="添加/编辑" Click="btn_handler"></MenuItem>
+                </ContextMenu>
+            </ListBox.ContextMenu>
+            <ListBox.Template>
+                <ControlTemplate TargetType="{x:Type ListBox}">
+                    <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                        <WrapPanel Orientation="Horizontal" IsItemsHost="True" ScrollViewer.CanContentScroll="True"/>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ListBox.Template>
+        </ListBox>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="5 0 0 0">
+            <WT:PerfectWateMarkTextBox  Width="160" WateMark="输入SKU编号" x:Name="txtOtherGoods" VerticalAlignment="Center"></WT:PerfectWateMarkTextBox>
+            <Button Content="添加其它款" Width="100" Height="35" Margin="5 3 0 0" FontSize="14" HorizontalAlignment="Left" Cursor="Hand" Click="btn_addOther"></Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

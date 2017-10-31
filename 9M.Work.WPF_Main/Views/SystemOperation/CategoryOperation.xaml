@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.SystemOperation.CategoryOperation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"   Style="{StaticResource DialogViewStyle}"
+            >
+   
+    <Grid>
+        <WrapPanel Orientation="Vertical" >
+            <WrapPanel>
+                <Label>分类名:</Label>
+                <TextBox Name="tb_CategoryName" Width="100"></TextBox>
+            </WrapPanel>
+            <WrapPanel Margin="0,10,0,0">
+                <Label>编码范围:</Label>
+                <TextBox Width="30" Name="tb_codemin" ></TextBox>
+                <Label Content="~"></Label>
+                <TextBox Width="30" Name="tb_codemax" ></TextBox>
+            </WrapPanel>
+            <WrapPanel  Margin="0,10,0,0">
+                <Label>所有特点:</Label>
+                <CheckBox  Content="袖型" VerticalAlignment="Center" Name="cb_xiuxing"></CheckBox>
+                <CheckBox  Content="面料" VerticalAlignment="Center" Margin="10,0,0,0" Name="cb_mianliao"></CheckBox>
+                <CheckBox  Content="颜色" VerticalAlignment="Center" Margin="10,0,0,0" Name="cb_yanse"></CheckBox>
+                <CheckBox  Content="门襟" VerticalAlignment="Center" Margin="10,0,0,0" Name="cb_menjin"></CheckBox>
+                <CheckBox  Content="领型" VerticalAlignment="Center" Margin="10,0,0,0" Name="cb_linxing"></CheckBox>
+                <CheckBox  Content="其它特点" VerticalAlignment="Center" Margin="10,0,0,0" Name="cb_qita"></CheckBox>
+            </WrapPanel>
+            <WrapPanel HorizontalAlignment="Right" Margin="0,20,0,0">
+                <Button Content="确定" Width="60"  Style="{DynamicResource AccentedSquareButtonStyle}" Margin="0,0,10,0" Click="Button_Click" Tag="0"></Button>
+                <Button Content="取消" Width="60"  Style="{DynamicResource AccentedSquareButtonStyle}" Click="Button_Click" Tag="1"></Button>
+            </WrapPanel>
+        </WrapPanel>
+    </Grid>
+</UserControl>

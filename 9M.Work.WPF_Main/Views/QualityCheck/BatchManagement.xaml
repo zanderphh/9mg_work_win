@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.QualityCheck.BatchManagement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:lib ="clr-namespace:_9M.Work.WPF_Common.Controls.Pager;assembly=9M.Work.WPF_Common"
+
+             >
+   
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- 选择区域-->
+        <Border BorderBrush="LightGray" BorderThickness="1" Grid.Row="0" CornerRadius="4">
+            <WrapPanel VerticalAlignment="Center">
+                <Label Content="模糊查询" VerticalAlignment="Center"></Label>
+                <TextBox Width="100" Height="30" ToolTip="模糊查询" Name="tb_QueryText"></TextBox>
+                <Button  Content="查询" Width="60" Height="25" Style="{StaticResource ButtonRedStyle}" Margin="15 0 0 0" Click="Btn_Click" Tag="4"/>
+
+                <Button  Content="新建批次" Width="60"  Style="{StaticResource addButton}" Margin="160 0 0 0" Click="Btn_Click" Tag="0"/>
+                <Button  Content="修改批次"  Width="60" Style="{StaticResource updateButton}" Margin="10 0 0 0" Click="Btn_Click" Tag="1"/>
+                <Button  Content="批次作废"  Width="60" Style="{StaticResource delButton}" Margin="10 0 0 0" Click="Btn_Click" Tag="2"/>
+                <Button  Content="款号管家导入"  Width="80" Style="{StaticResource importButton}" Margin="10 0 0 0" Click="Btn_Click" Tag="3"/>
+                <Button Content="包装锁定设置" Width="80" Style="{StaticResource refreshButton}" Margin="10 1 0 0" Click="Btn_Click" Tag="5"></Button>
+                <Button Content="批次锁定设置" Width="80" Style="{StaticResource  refreshButton}" Margin="10 1 0 0" Click="Btn_Click" Tag="6"></Button>
+                <Button Content="报表显示/取消" Width="85" Style="{StaticResource  refreshButton}" Margin="10 1 0 0" Click="Btn_Click" Tag="8"></Button>
+                <Label VerticalContentAlignment="Center" Foreground="Fuchsia" Margin="20,0,0,0">打捆分配</Label>
+                <Viewbox>
+                    <Button Content="{DynamicResource appbar_clothes_shirt}" Click="Btn_Click" Tag="7"></Button>
+                </Viewbox>
+
+                <!--<Button   Content="分类编辑"  Width="60" Style="{StaticResource    setButton}" Margin="100 0 0 0" Click="Btn_Click" Tag="5"/>
+                <Button   Content="特点编辑"  Width="60" Style="{StaticResource    refreshButton}" Margin="10 0 0 0" Click="Btn_Click" Tag="6"/>-->
+
+            </WrapPanel>
+        </Border>
+
+        <!--数据集合-->
+        <Border BorderBrush="LightGray" BorderThickness="1" Grid.Row="1" CornerRadius="4" Margin="0,20,0,0">
+            <WrapPanel Orientation="Vertical">
+                <DataGrid  ItemsSource ="{Binding }" Name="BatchGrid"
+                           AutoGenerateColumns="False" IsReadOnly="True" 
+                           GridLinesVisibility="All"   Style="{DynamicResource AzureDataGrid}"
+                            RenderOptions.ClearTypeHint="Enabled"
+                            TextOptions.TextFormattingMode="Display"
+                           >
+                    <DataGrid.Columns>
+                        <!-- 名称，品牌，季节，总件数，款数，残次数量，残次率，单款单件数量，分款时间，入库时间，备注-->
+                        <DataGridTextColumn Header="批次名" Binding="{Binding BatchName}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="品牌" Binding="{Binding Brand}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="品牌代号" Binding="{Binding BrandEn}"></DataGridTextColumn>
+                        <!--<DataGridTextColumn Header="年份" Binding="{Binding Year1}"></DataGridTextColumn>-->
+                        <DataGridTextColumn Header="春" Binding="{Binding Spring}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="夏" Binding="{Binding Summer}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="秋" Binding="{Binding Autumn}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="冬" Binding="{Binding Winter}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="总件数" Binding="{Binding UnitCount}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="款数" Binding="{Binding WareCount}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="残次数量" Binding="{Binding ImperfectCount}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="残次率" Binding="{Binding Imperfectrate}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="单款单件数量" Binding="{Binding OneononeCount}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="分款时间" Binding="{Binding DistinguishDate ,StringFormat='yyyy-MM-dd HH:mm:ss'}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="入库时间" Binding="{Binding IntstockDate,StringFormat='yyyy-MM-dd HH:mm:ss'}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="备注" Width="250" Binding="{Binding Remark}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="锁定状态" Width="80" Binding="{Binding IsLock}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="报表显示" Width="80" Binding="{Binding IsDisplay}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+               
+                <lib:DataPager Grid.Row="1" Name="dataPager" PageSizeList="10,20,30"
+                       ItemsSource="{Binding Path=Result.Students,Mode=TwoWay,ElementName=self}"
+                       Total="{Binding Path=Result.Total,ElementName=self}"
+                       PageChanged="dataPager_PageChanged" 
+                       />
+            </WrapPanel>
+        </Border>
+    </Grid>
+</UserControl>

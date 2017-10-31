@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Common.Controls.Print.FyiPrintStyle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             >
+    <Grid>
+        <StackPanel Name="PrintStack" Height="310" Width="130">
+            <StackPanel Orientation="Vertical" >
+                <StackPanel.Resources>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="10"></Setter>
+                        <Setter Property="FontFamily" Value="宋体"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <!--品牌-->
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Width="35">品牌:</TextBlock>
+                    <TextBlock Name="lab_brand">9魅季</TextBlock>
+                </StackPanel>
+                <!--款号-->
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="35">款号:</TextBlock>
+                    <TextBlock Name="lab_goodsno">61QB3631</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="35">品名:</TextBlock>
+                    <TextBlock Name="lab_goodsname">连衣裙</TextBlock>
+                </StackPanel>
+                <!--色号-->
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="35">色号:</TextBlock>
+                    <TextBlock Name="lab_color">白色</TextBlock>
+                </StackPanel>
+                <!--号型-->
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="35">号型:</TextBlock>
+                    <TextBlock Name="lab_size">155/60A(S)</TextBlock>
+                </StackPanel>
+                <!--面料-->
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="35">面料:</TextBlock>
+                    <TextBlock Name="lab_metail1">65%锦纶</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="35">里料:</TextBlock>
+                    <TextBlock Name="lab_metail2">85%聚酯纤维</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="30"></TextBlock>
+                    <TextBlock Name="lab_metail3"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="30"></TextBlock>
+                    <TextBlock Name="lab_metail4"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="30"></TextBlock>
+                    <TextBlock Name="lab_metail5"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="30"></TextBlock>
+                    <TextBlock Name="lab_metail6"></TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="30"></TextBlock>
+                    <TextBlock Name="lab_metail7"></TextBlock>
+                </StackPanel>
+                <!--执行标准-->
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="47">执行标准:</TextBlock>
+                    <TextBlock Name="lab_zhixing">GB/T 2666-2009</TextBlock>
+                </StackPanel>
+                <!--质量等级-->
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="50">质量等级:</TextBlock>
+                    <TextBlock >合格品</TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock FontSize="7">B类  GB18401-2010</TextBlock>
+                </StackPanel>
+                <!--检验员-->
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="60">检验员:</TextBlock>
+                    <TextBlock >003</TextBlock>
+                </StackPanel>
+                <!--产地-->
+                <StackPanel Orientation="Horizontal" Margin="0,3,0,0">
+                    <TextBlock Width="50">产地:</TextBlock>
+                    <TextBlock >中国   杭州</TextBlock>
+                </StackPanel>
+                <!--条码-->
+                <StackPanel  Margin="0,5,0,0" Width="125" HorizontalAlignment="Left">
+                    <Image Height="30" Name="Img_Code"></Image>
+                    <TextBlock HorizontalAlignment="Center">33SC0001</TextBlock>
+                </StackPanel>
+                <!--价格-->
+                <StackPanel Orientation="Horizontal" Margin="0,7,0,0">
+                    <TextBlock Width="50" VerticalAlignment="Center">价格:</TextBlock>
+                    <TextBlock FontSize="14" FontWeight="Bold">239.00</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

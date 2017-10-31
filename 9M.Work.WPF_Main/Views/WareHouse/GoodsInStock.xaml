@@ -1,0 +1,132 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.WareHouse.GoodsInStock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             >
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                <Ellipse Width="40" Height="40" Stroke="Blue" Fill="Blue" />
+                <Label VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold">选中状态</Label>
+                <Ellipse Width="40" Height="40" Stroke="Blue" Fill="Red" Margin="25,0,0,0"/>
+                <Label VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold">己处理</Label>
+                <Ellipse Width="40" Height="40" Stroke="Black" Fill="Green" Margin="25,0,0,0"/>
+                <Label VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold">己完成</Label>
+                <Ellipse Width="40" Height="40" Stroke="Black" Fill="White" Margin="25,0,0,0"/>
+                <Label VerticalContentAlignment="Center" FontSize="15" FontWeight="Bold">未处理</Label>
+            </StackPanel>
+            <Border BorderBrush="LightGray" BorderThickness="1" Grid.Row="0" CornerRadius="4" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label  FontWeight="Bold">查询入库单</Label>
+                    <TextBox Style="{DynamicResource SearchMetroTextBox}"  Width="200" Margin="20,0,0,0"
+                             Controls:TextBoxHelper.Watermark="输入单号"
+                             Controls:TextBoxHelper.ButtonCommand="{Binding QueryCommand, Mode=OneWay}"
+                             VerticalContentAlignment="Center" Name="tb_Billd" KeyDown="tb_Billd_KeyDown"
+                             />
+
+                    <RadioButton Margin="30,0,0,0" IsChecked="True" Name="radio_one" >单行</RadioButton>
+                    <RadioButton Margin="10,0,0,0" Name="radio_many">多行</RadioButton>
+
+                    <TextBox Style="{DynamicResource SearchMetroTextBox}"  Width="140" Margin="20,0,0,0"
+                             Controls:TextBoxHelper.Watermark="扫瞄条码"
+                             Controls:TextBoxHelper.ButtonCommand="{Binding QueryCommandCode, Mode=OneWay}"
+                             VerticalContentAlignment="Center" Name="tb_GoodsNoAll" KeyDown="tb_GoodsNoAll_KeyDown"
+                             />
+                    <WrapPanel Orientation="Horizontal" Name="wrap_many" Visibility="Hidden" VerticalAlignment="Center">
+                        <TextBox   Width="100" Margin="30,0,0,0"
+                             Controls:TextBoxHelper.Watermark="货位"
+                            VerticalContentAlignment="Center" Name="tb_Postion" KeyDown="tb_Postion_KeyDown"/>
+                        <Button Margin="10,0,0,0" Style="{StaticResource updateButton}" Height="25" Click="Button_Click_Many">确定</Button>
+                    </WrapPanel>
+                    <Button   Background="Green" Margin="80,0,0,0" Style="{StaticResource GlassButton}" Height="30" Width="60"  Click="Button_SaveJX" >
+                        <Label Content="绩效保存" FontSize="11" Foreground="White" FontWeight="Bold"></Label>
+                    </Button>
+                    <Button   Background="Green" Margin="80,0,0,0" Style="{StaticResource GlassButton}" Height="30" Width="60"  Click="Button_KeepTrade_Cache" Visibility="Collapsed">
+                        <Label Content="临时保存" FontSize="11" Foreground="White" FontWeight="Bold"></Label>
+                    </Button>
+                    <Button   Background="Red" Margin="20,0,0,0" Style="{StaticResource GlassButton}" Height="30" Width="60"  Click="Button_KeepTrade" Visibility="Collapsed">
+                        <Label Content="保存订单" FontSize="11" Foreground="White" FontWeight="Bold"></Label>
+                    </Button>
+
+                    <Button   Background="Blue" Margin="120,0,0,0" Style="{StaticResource GlassButton}" Height="30" Width="60"  Click="Button_OpenLog" >
+                        <Label Content="查看日志" FontSize="11" Foreground="White" FontWeight="Bold"></Label>
+                    </Button>
+                    <!--<Button Margin="50,0,0,0" Click="Button_KeepTrade_Cache" FontSize="12">临时保存</Button>
+                    <Button Margin="30,0,0,0" Click="Button_KeepTrade" FontSize="12">保存订单</Button>-->
+                </StackPanel>
+            </Border>
+            <StackPanel Orientation="Horizontal" Height="30" Margin="0,10,0,0">
+                <Border BorderThickness="1" CornerRadius="4"  BorderBrush="LightGray" Width="520">
+                    <StackPanel Orientation="Horizontal">
+                        <Label  FontWeight="Bold">未完成订单查询</Label>
+                        <DatePicker Margin="20,0,0,0" Width="120" SelectedDateChanged="DatePicker_SelectedDateChanged" Name="date_cache"></DatePicker>
+                        <ComboBox Margin="20,0,0,0" Width="140" Name="com_BillId" DropDownClosed="com_BillId_DropDownClosed"></ComboBox>
+                        <CheckBox Margin="10,0,0,0" IsChecked="True" x:Name="ckRealtime">实时修改货位</CheckBox>
+                    </StackPanel>
+                </Border>
+                <Border BorderThickness="1" CornerRadius="4" Margin="80,0,0,0" BorderBrush="LightGray" >
+                    <StackPanel Orientation="Horizontal">
+                        <Label FontWeight="Bold">绩效查询</Label>
+                        <TextBox   Width="100" Margin="20,0,0,0" 
+                             Controls:TextBoxHelper.Watermark="用户名"
+                             VerticalContentAlignment="Center" Name="tb_user" 
+                             />
+                        <DatePicker Margin="20,0,0,0" Width="150" Name="date_start"></DatePicker>
+                        <Label>~</Label>
+                        <DatePicker Width="150" Name="date_end"></DatePicker>
+                        <TextBox VerticalContentAlignment="Center" FontSize="13" IsEnabled="False" Width="80" Margin="20,0,0,0" Name="tb_percount"></TextBox>
+                        <Button Margin="50,0,0,0" Width="80" Click="Button_Click">查询</Button>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Margin="0,10,0,0" Orientation="Vertical">
+                <DataGrid  ItemsSource ="{Binding ''}" x:Name="BatchGrid" IsReadOnly="True"
+            		AutoGenerateColumns="False" 
+            		GridLinesVisibility="All"   Style="{DynamicResource AzureDataGrid}"
+            		RenderOptions.ClearTypeHint="Enabled"
+            		TextOptions.TextFormattingMode="Display" CanUserSortColumns="False"
+            		Height="420" EnableColumnVirtualization="False" EnableRowVirtualization="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn FontSize="15" Header="款号" Width="130" Binding="{Binding GoodsNo}" />
+                        <DataGridTextColumn FontSize="15" Header="附加码" Width="100" Binding="{Binding SpecCode}"  />
+                        <DataGridTextColumn FontSize="15" Header="规格" Width="200" Binding="{Binding SpecName}"  />
+                        <DataGridTextColumn FontSize="15" Header="数量" Width="60" Binding="{Binding GoodsCount}"  />
+                        <DataGridTemplateColumn Header="主货位" Width="150">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Name="tb_postion" Text="{Binding P_Position}" FontSize="15" KeyDown="tb_KeyDown" ></TextBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="暂存位" Width="150">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Name="tb_postion" Text="{Binding F_Position}" FontSize="15" KeyDown="tb_KeyDown" ></TextBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="15"></Setter>
+                </Style>
+            </StackPanel.Resources>
+            <Label>单号:</Label>
+            <Label Width="160" Name="lab_trade"></Label>
+            <Label Margin="80,0,0,0">合计:</Label>
+            <Label Width="60" Name="lab_count"></Label>
+            <Label Margin="40,0,0,0">审核时间:</Label>
+            <Label Width="165" Name="lab_time"></Label>
+            <Label Margin="40,0,0,0">经办人:</Label>
+            <Label Width="80" Name="lab_man"></Label>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.WareHouse.PostionUpdate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9M.Work.WPF_Main.Views.WareHouse"
+             mc:Ignorable="d" 
+                xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+            >
+    <UserControl.Resources>
+        <RoutedUICommand x:Key="FaskDemo" Text="FaskDemo" />
+
+    </UserControl.Resources>
+    <UserControl.InputBindings>
+        <KeyBinding Gesture="Ctrl+D" Command="{StaticResource FaskDemo }"/>
+
+    </UserControl.InputBindings>
+    <UserControl.CommandBindings>
+        <CommandBinding Command="{StaticResource  FaskDemo}"
+                    CanExecute="CommandBinding_CanExecute"/>
+
+    </UserControl.CommandBindings>
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Border BorderBrush="LightGray" BorderThickness="1" Grid.Row="0" CornerRadius="4" Margin="0,5,0,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                  
+                    <TextBox Style="{DynamicResource SearchMetroTextBox}"  Width="120" Margin="0,0,0,0"
+                             Controls:TextBoxHelper.Watermark="输入款号"
+                             Controls:TextBoxHelper.ButtonCommand="{Binding QueryCommand, Mode=OneWay}"
+                             VerticalContentAlignment="Center" Name="tb_GoodsNo" KeyDown="tb_Billd_KeyDown"
+                             />
+                   
+                    <Button Margin="20,0,0,0"  Click="Button_Click">确定</Button>
+
+                    <TextBox Style="{DynamicResource SearchMetroTextBox}"  Width="120" Margin="50,0,0,0"
+                             Controls:TextBoxHelper.Watermark="输入货位"
+                             Controls:TextBoxHelper.ButtonCommand="{Binding QueryCommand, Mode=OneWay}"
+                             VerticalContentAlignment="Center" Name="tb_Postion" KeyDown="tb_Pos_KeyDown"
+                             />
+                    <Button Margin="20,0,0,0" Click="Button_Click_1">确定</Button>
+                    <Button   Background="Green" Margin="180,0,0,0" Style="{StaticResource GlassButton}" Height="30" Width="60"  Click="Button_Submit" >
+                        <Label Content="确定" FontSize="11" Foreground="White" FontWeight="Bold"></Label>
+                    </Button>
+                    <Button   Background="Red" Margin="20,0,0,0" Style="{StaticResource GlassButton}" Height="30" Width="60"  Click="Button_Clear" >
+                        <Label Content="清空" FontSize="11" Foreground="White" FontWeight="Bold"></Label>
+                    </Button>
+                    <Label Foreground="Red" VerticalContentAlignment="Center" Margin="20,0,0,0">Ctrl+D 可清空表单</Label>
+                </StackPanel>
+            </Border>
+            <StackPanel Margin="0,10,0,0">
+                <DataGrid  ItemsSource ="{Binding ''}" x:Name="BatchGrid" IsReadOnly="True"
+            		AutoGenerateColumns="False" 
+            		GridLinesVisibility="All"   Style="{DynamicResource AzureDataGrid}"
+            		RenderOptions.ClearTypeHint="Enabled"
+            		TextOptions.TextFormattingMode="Display" CanUserSortColumns="False"
+            		Height="420" EnableColumnVirtualization="False" EnableRowVirtualization="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn FontSize="15" Header="款号" Width="130" Binding="{Binding GoodsNo}" />
+                        <DataGridTextColumn FontSize="15" Header="附加码" Width="100" Binding="{Binding SpecCode}"  />
+                        <DataGridTextColumn FontSize="15" Header="规格" Width="200" Binding="{Binding SpecName}"  />
+                
+                        <DataGridTemplateColumn Header="主货位" Width="150">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Name="tb_postion" Text="{Binding P_Position}" FontSize="15" KeyDown="tb_KeyDown" ></TextBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="暂存位" Width="150">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox Name="tb_postion" Text="{Binding F_Position}" FontSize="15" KeyDown="tb_KeyDown" ></TextBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.DataCenter.StockUpdate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9M.Work.WPF_Main.Views.DataCenter"
+             mc:Ignorable="d"  
+             xmlns:PubControl ="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common" 
+             >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="900"></RowDefinition>
+            <RowDefinition></RowDefinition>
+          
+        </Grid.RowDefinitions>
+        <Border BorderBrush="LightGray" BorderThickness="1" Grid.Row="0">
+            <StackPanel Orientation="Horizontal"  Height="30">
+                <TextBox Name="tb_GoodsNo" Width="100"  Height="28" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="10,0,0,0" KeyDown="TextBox_KeyDown">
+                    <TextBox.Resources>
+                        <VisualBrush x:Key="HintText" TileMode="None" Opacity="0.5" Stretch="None" AlignmentX="Left">
+                            <VisualBrush.Visual>
+                                <TextBlock FontStyle="Italic" Text="请输入款号"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </TextBox.Resources>
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource HintText}"/>
+                                </Trigger>
+                                <Trigger Property="Text" Value="">
+                                    <Setter Property="Background" Value="{StaticResource HintText}"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <Button Style="{StaticResource GlassButton}" Click="Button_Click" Tag="0" Background="Red" Foreground="White" Width="30" Margin="20,0,0,0" >修改</Button>
+
+    
+
+                <Button Width="80" Margin="100,0,0,0" Style="{StaticResource refreshButton}" Click="Button_Click_1">加载未付订单</Button>
+
+                <WrapPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="20,0,0,0">
+                    <Label>选择处理的店铺：</Label>
+                    <CheckBox IsChecked="True" Name="Chk_C">C店</CheckBox>
+                    <CheckBox IsChecked="True" Name="Chk_FX" Margin="5,0,0,0">分销</CheckBox>
+                    <CheckBox Margin="5,0,0,0" Name="Chk_FD">副店</CheckBox>
+                    <CheckBox Margin="5,0,0,0" Name="Chk_TMALL">天猫</CheckBox>
+                    <CheckBox Margin="5,0,0,0" Name="Chk_AN">爱侬</CheckBox>
+                   
+                </WrapPanel>
+            </StackPanel>
+        </Border>
+
+        <DataGrid  Grid.Row="1" ItemsSource ="{Binding DataList,Mode=TwoWay}" x:Name="BatchGrid" IsReadOnly="True" Margin="0,13,0,0"
+            		AutoGenerateColumns="False" 
+            		GridLinesVisibility="All"   Style="{DynamicResource AzureDataGrid}"
+            		RenderOptions.ClearTypeHint="Enabled"
+            		TextOptions.TextFormattingMode="Display" CanUserSortColumns="False"
+            		Height="900" EnableColumnVirtualization="False" EnableRowVirtualization="False">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn ></DataGridCheckBoxColumn>
+                <DataGridTextColumn FontSize="13" Header="款号" Width="130" Binding="{Binding GoodsNo}" />
+                <DataGridTextColumn FontSize="13" Header="附加码" Width="100" Binding="{Binding SpecCode}"  />
+                <DataGridTextColumn FontSize="13" Header="规格" Width="200" Binding="{Binding SpecName}"  />
+                <DataGridTextColumn FontSize="13" Header="管家库存" Width="100" Binding="{Binding GjStock}"  />
+                <DataGridTextColumn FontSize="13" Header="未付款总数" Width="100" Binding="{Binding NoPayCount}"  />
+                <DataGridTemplateColumn Header="C店" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Name="tb_C" Text="{Binding StockC}" FontSize="13"  ></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="分销" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Name="tb_FX" Text="{Binding StockFX}" FontSize="13"  ></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="副店" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Name="tb_FD" Text="{Binding StockFD}" FontSize="13"  ></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="天猫" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Name="tb_TMALL" Text="{Binding StockTmall}" FontSize="13"  ></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="爱侬" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Name="tb_AINO" Text="{Binding StockAiNo}" FontSize="13"  ></TextBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!--进度条-->
+        <PubControl:CustomProgressBar Name="bar"  Grid.RowSpan="3"></PubControl:CustomProgressBar>
+    </Grid>
+</UserControl>

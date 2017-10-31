@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.DataCenter.GoodsSync"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:PubControl ="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common" >
+
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <!--提示-->
+            <TextBlock FontSize="12" FontFamily="Arial Black">
+                 <Run Foreground="Tan">提示:Excel的格式为（款号,价格）两列 ！！ 错误日志将生成在桌面（以日期命名的txt文本文件）！！  不可同步美折折扣款</Run>
+            </TextBlock>
+
+            <!--价格同步-->
+            <GroupBox BorderBrush="LightGray" BorderThickness="1"   HorizontalAlignment="Left" Margin="0,10,0,0" >
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock FontSize="16" FontFamily="Arial Black">
+                          <Run Foreground="White">价 格 同 步</Run>
+                        </TextBlock>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Label Content="请选择店铺" VerticalContentAlignment="Center"></Label>
+                    <!--<ComboBox SelectedIndex="0" Width="100" Name="Com_Shop" DisplayMemberPath="Text" SelectedValuePath="Id"/>-->
+                    <ComboBox Name="Com_Shop" Style="{DynamicResource VirtualisedMetroComboBox}"></ComboBox>
+                    <Button Style="{DynamicResource AccentedSquareButtonStyle}" Content="请选择(Excel文件)" Width="120" Margin="35,0,0,0" Click="Button_Click" Tag="2"></Button>
+                    <Label Content="启用价格检查" VerticalContentAlignment="Center" Margin="20,0,0,0"></Label>
+                    <Controls:ToggleSwitch x:Name="enabledSwitch"
+                                       Width="100"
+                                   IsChecked="False"
+                                   OnLabel="On"
+                                   OffLabel="OFF"
+                                   Margin="10,0,0,0" />
+                    <!--<Button  Style ="{DynamicResource AccentedSquareButtonStyle}" Content="确定" Width="50" HorizontalAlignment="Left" Margin="35,0,0,0" Click="Button_Click" Tag="1"></Button>-->
+                    <Button   Background="Green" Margin="40,0,0,0" Style="{StaticResource GlassButton}" Height="38" Width="38"  Click="Button_Click" Tag="1">
+                        <Label Content="同步" FontSize="11" Foreground="White" FontWeight="Bold"></Label>
+                    </Button>
+                </StackPanel>
+            </GroupBox>
+
+            <!--管家同步-->
+            <GroupBox BorderBrush="LightGray" BorderThickness="1"   HorizontalAlignment="Left" Margin="0,10,0,0" >
+                <GroupBox.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock FontSize="16" FontFamily="Arial Black">
+                          <Run Foreground="White">管 家 同 步</Run>
+                        </TextBlock>
+                    </DataTemplate>
+                </GroupBox.HeaderTemplate>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+                    <Label Foreground="Red">1.更新实价的列(款号,价格)  2.备注上新日期的列（款号,零售价,分销价,删除备注,上新时间）</Label>
+                    <WrapPanel>
+                        <Button Style="{DynamicResource AccentedSquareButtonStyle}" Content="批量更新商品实价" Width="120"  Click="Button_Click" Tag="4"></Button>
+                        <Button Style="{DynamicResource AccentedSquareButtonStyle}" Content="备注上新日期" Width="120"  Click="Button_Click" Tag="5" Margin="35,0,0,0"></Button>
+                    </WrapPanel>
+                </StackPanel>
+            </GroupBox>
+
+
+
+        </StackPanel>
+
+        <!--进度条-->
+        <PubControl:CustomProgressBar Name="bar" ></PubControl:CustomProgressBar>
+        <!-- DiaLog-->
+    </Grid>
+</UserControl>

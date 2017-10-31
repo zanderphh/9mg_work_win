@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C090BEA1-36B4-417D-BEEF-019BCB2D4491}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_9M.Work.DbObject</RootNamespace>
+    <AssemblyName>9M.Work.DbObject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="LinqKit">
+      <HintPath>..\packages\LinqKit.1.1.3.1\lib\net45\LinqKit.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="9MWorkDataContext.cs" />
+    <Compile Include="BaseDAL.cs" />
+    <Compile Include="Mappings\ActivityGoodsMap.cs" />
+    <Compile Include="Mappings\ActivityLogMap.cs" />
+    <Compile Include="Mappings\ActivityMap.cs" />
+    <Compile Include="Mappings\AndroidLogMap.cs" />
+    <Compile Include="Mappings\AndroidPDMap.cs" />
+    <Compile Include="Mappings\AndroidScanReceiptMap.cs" />
+    <Compile Include="Mappings\BrandMap.cs" />
+    <Compile Include="Mappings\CategoryMap.cs" />
+    <Compile Include="Mappings\CategoryPropertyMap.cs" />
+    <Compile Include="Mappings\ColorMap.cs" />
+    <Compile Include="Mappings\DeptMap.cs" />
+    <Compile Include="Mappings\FinanceRefundMap.cs" />
+    <Compile Include="Mappings\FuDaiBatchMap.cs" />
+    <Compile Include="Mappings\FuDaiGoodsMap.cs" />
+    <Compile Include="Mappings\GoodsLogMap.cs" />
+    <Compile Include="Mappings\LastSyncExpressTimeMap.cs" />
+    <Compile Include="Mappings\LiveCheckMap.cs" />
+    <Compile Include="Mappings\LiveGoodsMap.cs" />
+    <Compile Include="Mappings\LiveMap.cs" />
+    <Compile Include="Mappings\NewMsgNoticeMap.cs" />
+    <Compile Include="Mappings\PermissionMap.cs" />
+    <Compile Include="Mappings\PhotographyDetailMap.cs" />
+    <Compile Include="Mappings\PhotographyMap.cs" />
+    <Compile Include="Mappings\QualityBatchMap.cs" />
+    <Compile Include="Mappings\RefundDetailMap.cs" />
+    <Compile Include="Mappings\RefundLogMap.cs" />
+    <Compile Include="Mappings\RefundMap.cs" />
+    <Compile Include="Mappings\RegisterJSDZMap.cs" />
+    <Compile Include="Mappings\ReportInfoMap.cs" />
+    <Compile Include="Mappings\ShopMap.cs" />
+    <Compile Include="Mappings\TestMap.cs" />
+    <Compile Include="Mappings\UnknownGoodsMap.cs" />
+    <Compile Include="Mappings\UnknownlistMap.cs" />
+    <Compile Include="Mappings\UserInfoMap.cs" />
+    <Compile Include="Mappings\WareLogMap.cs" />
+    <Compile Include="Mappings\WareMap.cs" />
+    <Compile Include="Mappings\WareSpecMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StructClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\9M.Work.Model\9M.Work.Model.csproj">
+      <Project>{80aec071-d185-4851-9f29-c94ef62d4862}</Project>
+      <Name>9M.Work.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.WPF_Common\9M.Work.WPF_Common.csproj">
+      <Project>{947b7505-f5b0-4ce9-9e23-10c912518944}</Project>
+      <Name>9M.Work.WPF_Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

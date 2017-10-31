@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.UpdateUser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:wpfspark="clr-namespace:WPFSpark;assembly=WPFSpark" Style="{StaticResource DialogViewStyle}"
+             >
+    
+    <Grid  Margin="20,0,20,0">
+        <Grid.RowDefinitions>
+          
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Label Content="输入密码" HorizontalContentAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <PasswordBox Width="135" Margin="30,0,0,0" Height="25" Name="Pwd"></PasswordBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Label Content="重新输入密码" HorizontalContentAlignment="Left" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+            <PasswordBox Width="135" Margin="7,0,0,0" Height="25" Name="PwdAgain"></PasswordBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2"  Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="确定" Style="{StaticResource ButtonBlackStyle}" Width="60" Click="Button_Click" Tag="1" Margin="0,0,10,0" />
+            <Button Content="取消" Style="{StaticResource ButtonBlackStyle}" Width="60" Click="Button_Click" Tag="2"    />
+        </StackPanel>
+    
+
+
+    </Grid>
+
+
+</UserControl>

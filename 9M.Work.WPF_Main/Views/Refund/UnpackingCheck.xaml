@@ -1,0 +1,210 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Refund.UnpackingCheck"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WT="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common"
+             xmlns:local="clr-namespace:_9M.Work.Utility;assembly=9M.Work.Utility" 
+             xmlns:converter="clr-namespace:_9M.Work.WPF_Main.Infrastrcture"
+             xmlns:converterParam="clr-namespace:_9M.Work.WPF_Common.ValueObjects;assembly=9M.Work.WPF_Common"
+             xmlns:ecv="clr-namespace:_9M.Work.WPF_Main.Infrastrcture"
+             mc:Ignorable="d" Style="{StaticResource DialogViewStyle}" Width="1300">
+    <UserControl.Resources>
+        <ecv:RefundReasonVal x:Key="rrvComboBox"/>
+        <ecv:ExpressCompanyVal x:Key="expressCombobox"></ecv:ExpressCompanyVal>
+        <converter:EnumConverter x:Key="eConverter"></converter:EnumConverter>
+        <converterParam:RefundReason x:Key="EnumNoReason">buyer</converterParam:RefundReason>
+        <Style TargetType="Label" x:Key="labs">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="560"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="78"></ColumnDefinition>
+                <ColumnDefinition Width="130"></ColumnDefinition>
+                <ColumnDefinition Width="78"></ColumnDefinition>
+                <ColumnDefinition Width="130"></ColumnDefinition>
+                <ColumnDefinition Width="72"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Style="{StaticResource labs}" Content="退货店铺" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <TextBox Grid.Column="1" x:Name="txtShopName" Margin="0 5 0 5" FontSize="14"></TextBox>
+            <Button Grid.Column="2" Content="买家昵称"  Tag="nick"  Click="btn_copy"  Cursor="Hand" Height="32" Margin="2 0 2 0"></Button>
+            <TextBox Grid.Column="3" x:Name="txtNickName" Margin="0 5 0 5" FontSize="14"></TextBox>
+            <Button Grid.Column="4" Content="客户姓名"  Tag="realName"  Click="btn_copy"  Cursor="Hand" Height="32" Margin="2 0 2 0"></Button>
+            <TextBox Grid.Column="5" x:Name="txtRealName" Margin="0 5 0 5"></TextBox>
+            <Label Grid.Column="6" Style="{StaticResource labs}" Content="备注说明" VerticalAlignment="Center" HorizontalAlignment="Right"></Label>
+            <TextBox Grid.Column="7" x:Name="txtRemark" Margin="0 5 0 5" FontSize="14" Width="580"></TextBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="72"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="78"></ColumnDefinition>
+                <ColumnDefinition Width="130"></ColumnDefinition>
+                <ColumnDefinition Width="78"></ColumnDefinition>
+                <ColumnDefinition Width="130"></ColumnDefinition>
+                <ColumnDefinition Width="72"></ColumnDefinition>
+                <ColumnDefinition Width="140"></ColumnDefinition>
+                <ColumnDefinition Width="0"></ColumnDefinition>
+                <ColumnDefinition Width="230"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="快递单号"  Tag="expressNo"  Click="btn_copy"  Cursor="Hand" Height="32" Margin="2 0 2 0"></Button>
+            <TextBox Grid.Column="1" x:Name="txtExpressNo" Margin="0 5 0 5" FontSize="14"></TextBox>
+            <Button Grid.Column="2" Content="手机号"  Tag="mobile"  Click="btn_copy"  Cursor="Hand" Height="32" Margin="2 0 2 0"></Button>
+            <TextBox Grid.Column="3" x:Name="txtMobile" Margin="0 5 0 5" FontSize="14"></TextBox>
+            <Button Grid.Column="4" Content="原单号"  Tag="tbTradeNo"  Click="btn_copy"  Cursor="Hand" Height="32" Margin="2 0 2 0"></Button>
+            <TextBox Grid.Column="5" Grid.ColumnSpan="2" x:Name="txtTbTradeNo" Margin="0 5 0 5" FontSize="14"></TextBox>
+            <Button Grid.Column="7" Content="批量完成退款" Height="30" Width="120" FontSize="12" x:Name="btn_batchFinanceEnd" Click="btn_batchFinanceEnd_Click"></Button>
+            <StackPanel Grid.Column="9" VerticalAlignment="Center" Orientation="Horizontal"  Margin="0 0 25 0">
+                <RadioButton Content="全部" Margin="10 0 0 0" GroupName="g" x:Name="rAll" Click="filterDatasource_Click" Tag="1"></RadioButton>
+                <RadioButton Content="多退" Margin="10 0 0 0" GroupName="g" x:Name="many" Click="filterDatasource_Click" Tag="2"></RadioButton>
+                <RadioButton Content="少退" Margin="10 0 0 0" GroupName="g" x:Name="less" Click="filterDatasource_Click" Tag="3"></RadioButton>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Column="10">
+                <TextBox Width="100" VerticalAlignment="Center" KeyDown="TextBox_KeyDown" x:Name="txtSearch"></TextBox>
+                <Button Content="商品查找" Width="90" Margin="10 0 15 0" FontSize="14" Height="35" Click="btn_searchRow"></Button>
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="2">
+            <Border BorderThickness="0 1 0 0" BorderBrush="#92a1a5">
+                <DataGrid IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="All" Style="{DynamicResource AzureDataGrid}" 
+                          RenderOptions.ClearTypeHint="Enabled" TextOptions.TextFormattingMode="Display" x:Name="Handlerslist">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu  StaysOpen="True" x:Name="cMenu">
+                            <MenuItem Header="打印标签" Click="btn_goto" Tag="print"></MenuItem>
+                            <MenuItem Header="修改备注" Click="btn_goto" Tag="updateremark"></MenuItem>
+                            <MenuItem Header="商品详情" Click="btn_goto" Tag="link"></MenuItem>
+                            <MenuItem Header="删除商品" Click="btnDel_Click"></MenuItem>
+                            <MenuItem Header="转到异常" Click="btn_goto" Tag="Excepion"></MenuItem>
+                            <!--<MenuItem Header="转至财务状态" Click="btn_goto" Tag="Finance"></MenuItem>
+                            <MenuItem Header="转至拆包状态" Click="btn_goto" Tag="Unpacking"></MenuItem>-->
+                            <MenuItem Header="设为多退款待处理" Click="btn_goto" Tag="MuiltWattinigHandle"></MenuItem>
+                            <MenuItem Header="退货拆单" Click="btn_goto" Tag="Split"></MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="序号" Binding="{Binding id}" Visibility="Collapsed"/>
+                        <DataGridTemplateColumn Header="序号" Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding rdm.dColumn1}" HorizontalAlignment="Center" FontSize="14" ></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="140">
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock>图片</TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding rdm.imgUrl}" Width="120" Height="120" Margin="0 0 0 10" ToolTip="右链菜单跳转到商品详情"></Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="100" Header="款号" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding rdm.goodsno}" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" Cursor="Hand" ToolTip="单击复制"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="100" Header="规格">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding rdm.specName}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="类目" Binding="{Binding rdm.categoryName}" Visibility="Collapsed"/>
+                        <DataGridTextColumn Header="订单编号" Binding="{Binding rdm.tbTradeNo}" Width="120"/>
+                        <DataGridTemplateColumn Width="140" Header="退货原因">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                        <!--<TextBlock TextWrapping="Wrap" Text="{Binding rdm.refundReason,Converter={StaticResource eConverter},ConverterParameter={StaticResource EnumNoReason}}" Visibility="Collapsed"></TextBlock>-->
+                                        <ComboBox Width="110" Height="30" x:Name="cmbRefundReason" Margin="0 0 0 10"  DisplayMemberPath="Text" SelectedValuePath="Value"  
+                                              ItemsSource="{StaticResource rrvComboBox}" SelectedValue="{Binding rdm.refundReason,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                                        <Button Width="110" Height="35" Content="更新" Cursor="Hand" FontSize="14" Click="btn_updateRefundReason" ToolTip="{Binding rdm.refundDesc}"></Button>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="140" Header="商品备注">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding rdm.remark}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Width="160" Header="物流信息">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                        <ComboBox Width="150" Height="30" x:Name="cmbExpressCompany" Margin="0 0 0 10"  DisplayMemberPath="Text" SelectedValuePath="Text" 
+                                             ItemsSource="{Binding rdgm.ExpressCompanyItem}" SelectedValue="{Binding rdm.expressCompany,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></ComboBox>
+                                        <WT:PerfectWateMarkTextBox  WateMark="输入快递单号" x:Name="txtPostCode" Width="150" Text="{Binding rdm.expressCode,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Foreground="Red"></WT:PerfectWateMarkTextBox>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="拆包员工" Binding="{Binding rdm.unpackingEmployee}" Width="80"/>
+                        <DataGridTextColumn Header="处理员工" Binding="{Binding rdm.exceptionEmployee}" Width="90"/>
+                        <DataGridTemplateColumn Width="120" Header="操作">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Width="120">
+                                        <Button Content="{Binding rdgm.GridButtonName}" Width="100" FontSize="14"  Click="btn_Operator" x:Name="btn_grid" Visibility="{Binding rdgm.GridButtonVisible}" Cursor="Hand" HorizontalAlignment="Center"/>
+                                        <Button Content="{Binding rdgm.FxHandleButtonName}" Width="100" FontSize="14" Margin="0 20 0 0"  Click="btn_FXOperator"  Visibility="{Binding rdgm.FXHandleButton}" Cursor="Hand" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding rdgm.GridTextBlock}" Margin="0 10 0 0" Width="100" FontSize="12" FontWeight="Black" Visibility="{Binding rdgm.GridTextBlockVisible}"  HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="220"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal">
+                <TextBlock  FontSize="14" Text="合计" FontWeight="Bold" VerticalAlignment="Center" Margin="0 0 0 0"></TextBlock>
+                <TextBlock Width="40" FontSize="20" Text="0"  FontWeight="Bold" VerticalAlignment="Center" x:Name="totalNumber" Foreground="Red" Margin="5 0 0 0"></TextBlock>
+                <TextBlock  FontSize="14" Text="已拆包" FontWeight="Bold" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
+                <TextBlock Width="40" FontSize="20" Text="0" FontWeight="Bold" VerticalAlignment="Center" x:Name="unpackingNumber" Foreground="Blue" Margin="5 0 0 0"></TextBlock>
+                <TextBlock  FontSize="14" Text="异常" FontWeight="Bold" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
+                <TextBlock Width="40" FontSize="20" Text="0"  FontWeight="Bold" VerticalAlignment="Center" x:Name="exceptionNumber" Foreground="Blue" Margin="5 0 0 0"></TextBlock>
+                <TextBlock  FontSize="14" Text="已退款" FontWeight="Bold" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
+                <TextBlock Width="40" FontSize="20" Text="0" FontWeight="Bold" VerticalAlignment="Center" x:Name="finRefundNumber" Foreground="Blue" Margin="5 0 0 0"></TextBlock>
+
+                <ComboBox Width="150" Height="30" x:Name="cmbExpressCompanybatch" Margin="10 0 0 0"  DisplayMemberPath="Text" SelectedValuePath="Value"   ItemsSource="{StaticResource expressCombobox}"></ComboBox>
+                <WT:PerfectWateMarkTextBox  WateMark="输入快递单号" x:Name="txtPostCodebatch" Width="150" Text="{Binding rdm.expressCode,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="10 0 0 0"></WT:PerfectWateMarkTextBox>
+                <Button Content="批量保存"  Width="100" Margin="10 0 0 0" FontSize="13"  Tag="multi" Cursor="Hand" Height="32" Click="btn_batchSave"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1">
+                <Button Content="多退款添加"  Width="90" Margin="0 0 10 0" FontSize="13" Click="btn_ExcHandle" Tag="multi" Cursor="Hand"></Button>
+                <Button Content="未知款添加"  Width="90" Margin="0 0 10 0" FontSize="13" Click="btn_ExcHandle" Tag="unknown" Cursor="Hand"></Button>
+            </StackPanel>
+            <Button  Grid.Column="2" Width="90" Content="更新保存"   FontSize="12" Background="#009DED" Foreground="#fff" HorizontalAlignment="Right" Click="ButtonSave_Click"></Button>
+        </Grid>
+    </Grid>
+</UserControl>

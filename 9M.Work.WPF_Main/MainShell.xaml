@@ -1,0 +1,48 @@
+﻿<Window x:Class="_9M.Work.WPF_Main.MainShell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://www.codeplex.com/prism"
+        Title="9魅优品管理软件" 
+        Style="{StaticResource O2OWindowStyle}" WindowStartupLocation="CenterScreen" 
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" Closed="Window_Closed"
+        x:Name="ms"
+        >
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="61"></RowDefinition>
+            <RowDefinition Height="80*"></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ContentControl prism:RegionManager.RegionName="TopRegion"  Grid.Row="0"></ContentControl>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="84*"/>
+                <ColumnDefinition Width="299*"/>
+            </Grid.ColumnDefinitions>
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>-->
+            <!--<ContentControl  prism:RegionManager.RegionName="LeftNavRegion"  Grid.Column="0"></ContentControl>-->
+            <Grid Grid.ColumnSpan="2">
+                <!--<Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="79*"/>
+                    <ColumnDefinition Width="26*"/>
+                    <ColumnDefinition Width="178*"/>
+                </Grid.ColumnDefinitions>-->
+                <Grid.RowDefinitions>
+                    <!--<RowDefinition Height="40"></RowDefinition>-->
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--<StackPanel Grid.Row="0" Background="#eeeeee">
+                    <ContentControl prism:RegionManager.RegionName="RightNavigationButtonRegion" VerticalContentAlignment="Center" HorizontalContentAlignment="Right"></ContentControl>
+                </StackPanel>-->
+                <!--<TabControl prism:RegionManager.RegionName="RightNavigationButtonRegion" Grid.Row="1"></TabControl>-->
+                <ContentControl prism:RegionManager.RegionName="RightContentRegion" Name="MainContent"></ContentControl>
+            </Grid>
+        </Grid>
+        <ContentControl prism:RegionManager.RegionName="BottomRegion"  Grid.Row="2"></ContentControl>
+        <!--<ld:Loadinglayer Visibility="Visible"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="3"/>-->
+    </Grid>
+</Window>

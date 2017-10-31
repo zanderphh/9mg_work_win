@@ -1,0 +1,15 @@
+﻿<Window x:Class="_9M.Work.WPF_Main.TestWindwos"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TestWindwos" Width="1920" Height="1080"
+         xmlns:PubControl ="clr-namespace:_9M.Work.WPF_Common.Controls.Print;assembly=9M.Work.WPF_Common" 
+        >
+    <StackPanel Orientation="Vertical" >
+        <Button Height="40" Click="Button_Click">加载</Button>
+        <ScrollViewer x:Name="scrolls" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Height="900">
+            <ScrollViewer.Content>
+                <StackPanel x:Name="Panel" Orientation="Vertical" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+            </ScrollViewer.Content>
+        </ScrollViewer>
+    </StackPanel>
+</Window>

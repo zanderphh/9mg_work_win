@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.ControlTemplate.PrintTemplate.LabelTemplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="70" d:DesignWidth="200">
+    <Grid Name="PrintAir">
+        <StackPanel Orientation="Vertical" Width="170" HorizontalAlignment="Right">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Vertical" Width="100">
+                    <Label Name="lab_WareNo" FontSize="10" >62DY0005</Label>
+                    <Label Name="lab_Spec" FontSize="10" Margin="0,-10,0,0">黑色S</Label>
+                </StackPanel>
+                <StackPanel Margin="-18,5,0,0">
+                    <Label Name="lab_Msg" Width="100">WX-1158</Label>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" >
+                <Image Height="20" Name="Img_Code" Stretch="Fill"></Image>
+                <Label Name="lab_Code" FontSize="8" Margin="0,-4,0,0" HorizontalContentAlignment="Center">33SC0011124</Label>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

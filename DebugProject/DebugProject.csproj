@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ADC8E2B7-A5E6-4DCA-A371-476334D893B2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DebugProject</RootNamespace>
+    <AssemblyName>DebugProject</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\9M.Work.DLL\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TopSdk">
+      <HintPath>..\9M.Work.DLL\TopSdk.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\9M.Work.AOP\9M.Work.AOP.csproj">
+      <Project>{e82c6895-da99-4895-9a48-fd1aee1675d1}</Project>
+      <Name>9M.Work.AOP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.DbObject\9M.Work.DbObject.csproj">
+      <Project>{c090bea1-36b4-417d-beef-019bcb2d4491}</Project>
+      <Name>9M.Work.DbObject</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.DLL\9M.Work.DLL.csproj">
+      <Project>{6aabadc8-7292-4cc9-988d-a02ae550a1b6}</Project>
+      <Name>9M.Work.DLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.ErpApi\9M.Work.ErpApi.csproj">
+      <Project>{11b4fa7f-b290-4480-bc70-b2c356e30631}</Project>
+      <Name>9M.Work.ErpApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.JosApi\9M.Work.JosApi.csproj">
+      <Project>{5220d2c4-16bd-402a-b9e6-69bd969bbf7b}</Project>
+      <Name>9M.Work.JosApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.Model\9M.Work.Model.csproj">
+      <Project>{80aec071-d185-4851-9f29-c94ef62d4862}</Project>
+      <Name>9M.Work.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.ProjectRelease\9M.Work.ProjectRelease.csproj">
+      <Project>{2b3ecff0-e79f-4399-880f-85eb9bf3972c}</Project>
+      <Name>9M.Work.ProjectRelease</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.TopApi\9M.Work.TopApi.csproj">
+      <Project>{94821575-c6b4-4105-ab2a-88aeda73f2ea}</Project>
+      <Name>9M.Work.TopApi</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.Utility\9M.Work.Utility.csproj">
+      <Project>{b0f8d955-3ac1-46c3-b42f-0599426ee1ad}</Project>
+      <Name>9M.Work.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.WPF_Common\9M.Work.WPF_Common.csproj">
+      <Project>{947b7505-f5b0-4ce9-9e23-10c912518944}</Project>
+      <Name>9M.Work.WPF_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.WPF_Main\9M.Work.WPF_Main.csproj">
+      <Project>{626c87c8-973e-401b-ba6a-159d9d88f56e}</Project>
+      <Name>9M.Work.WPF_Main</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.WSVariable\9M.Work.WSVariable.csproj">
+      <Project>{1226ecae-d42f-4629-849b-88865cde4abc}</Project>
+      <Name>9M.Work.WSVariable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\9M.Work.YouZan\9M.Work.YouZan.csproj">
+      <Project>{6047827f-049b-41de-866a-a553e5d4ce66}</Project>
+      <Name>9M.Work.YouZan</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZImageRenovate\ZImageRenovate.csproj">
+      <Project>{fab9d949-12fd-4c62-bd68-6358721f1427}</Project>
+      <Name>ZImageRenovate</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

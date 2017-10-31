@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Statistics.FenxiaoPerformance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:PubControl ="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common"  >
+    <Grid>
+        <Viewbox  VerticalAlignment="Top" HorizontalAlignment="Left" >
+            <StackPanel Orientation="Vertical">
+                <GroupBox Header="接收设置">
+                    <StackPanel Orientation="Horizontal" >
+                        <StackPanel.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+                            </Style>
+                          
+                        </StackPanel.Resources>
+                        <Button Content="客服名单设置" Style="{StaticResource  setButton}" Width="82" Click="Button_Click" Tag="0"></Button>
+                        <Label Margin="10,0,0,0">单次请求页数：</Label>
+                        <TextBox Width="50" Name="tb_pageno" Text="3"></TextBox>
+                        <Label>请求间隔(秒)：</Label>
+                        <TextBox Width="50" Name="tb_jiange" Text="1"></TextBox>
+                        <Label>订单选取范围</Label>
+                        <DatePicker Name="date_start"></DatePicker>
+                        <Label>~</Label>
+                        <DatePicker Name="date_end"></DatePicker>
+                        <Label>绩计年份</Label>
+                        <ComboBox Name="com_Year" SelectedIndex="0">
+                            <ComboBoxItem>2016</ComboBoxItem>
+                            <ComboBoxItem>2017</ComboBoxItem>
+                            <ComboBoxItem>2018</ComboBoxItem>
+                        </ComboBox>
+                        <Label>绩计月份</Label>
+                        <ComboBox Name="com_month">
+                            <ComboBoxItem>一</ComboBoxItem>
+                            <ComboBoxItem>二</ComboBoxItem>
+                            <ComboBoxItem>三</ComboBoxItem>
+                            <ComboBoxItem>四</ComboBoxItem>
+                            <ComboBoxItem>五</ComboBoxItem>
+                            <ComboBoxItem>六</ComboBoxItem>
+                            <ComboBoxItem>七</ComboBoxItem>
+                            <ComboBoxItem>八</ComboBoxItem>
+                            <ComboBoxItem>九</ComboBoxItem>
+                            <ComboBoxItem>十</ComboBoxItem>
+                            <ComboBoxItem>十一</ComboBoxItem>
+                            <ComboBoxItem>十二</ComboBoxItem>
+                        </ComboBox>
+                        <Button  Name="btn_Query"   Background="Green" Style="{StaticResource GlassButton}" Height="30" Width="30" Click="Btn_CommandClick" Tag="0" Margin="800,0,0,0">
+                            <Label Content="搜索" FontSize="8" Foreground="White" FontWeight="Bold"></Label>
+                        </Button>
+                        <Button Name="btn_exprot"   Background="Red" Style="{StaticResource GlassButton}" Height="30" Width="30" Click="Btn_CommandClick" Tag="1" Margin="20,0,0,0">
+                            <Label Content="导出" FontSize="8" Foreground="White" FontWeight="Bold"></Label>
+                        </Button>
+                    </StackPanel>
+                </GroupBox>
+
+                <Border BorderBrush="LightBlue" BorderThickness="1" Name="TuBiao" Margin="0,5,0,0">
+                </Border>
+            </StackPanel>
+        </Viewbox>
+        <!--进度条-->
+
+        <PubControl:CustomProgressBar Name="bar"></PubControl:CustomProgressBar>
+    </Grid>
+</UserControl>

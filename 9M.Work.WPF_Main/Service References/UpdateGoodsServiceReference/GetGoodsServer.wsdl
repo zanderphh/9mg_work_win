@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://my.9mg.cc/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://my.9mg.cc/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://my.9mg.cc/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodsPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="goodsno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGoodsPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGoodsPriceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpDatePrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="requestkey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JsonStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpDatePriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpDatePriceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodsPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGoodsPrice" />
+  </wsdl:message>
+  <wsdl:message name="GetGoodsPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGoodsPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpDatePriceSoapIn">
+    <wsdl:part name="parameters" element="tns:UpDatePrice" />
+  </wsdl:message>
+  <wsdl:message name="UpDatePriceSoapOut">
+    <wsdl:part name="parameters" element="tns:UpDatePriceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GetGoodsServerSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodsPrice">
+      <wsdl:input message="tns:GetGoodsPriceSoapIn" />
+      <wsdl:output message="tns:GetGoodsPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpDatePrice">
+      <wsdl:input message="tns:UpDatePriceSoapIn" />
+      <wsdl:output message="tns:UpDatePriceSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GetGoodsServerSoap" type="tns:GetGoodsServerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://my.9mg.cc/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodsPrice">
+      <soap:operation soapAction="http://my.9mg.cc/GetGoodsPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpDatePrice">
+      <soap:operation soapAction="http://my.9mg.cc/UpDatePrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GetGoodsServerSoap12" type="tns:GetGoodsServerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://my.9mg.cc/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGoodsPrice">
+      <soap12:operation soapAction="http://my.9mg.cc/GetGoodsPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpDatePrice">
+      <soap12:operation soapAction="http://my.9mg.cc/UpDatePrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetGoodsServer">
+    <wsdl:port name="GetGoodsServerSoap" binding="tns:GetGoodsServerSoap">
+      <soap:address location="http://my.9mg.cc/ajaxhandle/GetGoodsServer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GetGoodsServerSoap12" binding="tns:GetGoodsServerSoap12">
+      <soap12:address location="http://my.9mg.cc/ajaxhandle/GetGoodsServer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

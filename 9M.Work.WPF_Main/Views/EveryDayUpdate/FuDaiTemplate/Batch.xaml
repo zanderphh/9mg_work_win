@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.EveryDayUpdate.FuDaiTemplate.Batch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9M.Work.WPF_Main.Views.EveryDayUpdate.FuDaiTemplate"
+             mc:Ignorable="d" 
+                 xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+               xmlns:localPager="clr-namespace:_9M.Work.WPF_Common.Controls.Pagination;assembly=9M.Work.WPF_Common" 
+            >
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Border BorderThickness="0.5" BorderBrush="Gray" CornerRadius="1" Height="38">
+                <StackPanel Orientation="Horizontal" Height="30">
+                    <TextBox VerticalContentAlignment="Center" Width="150" Margin="8,0,0,0" Name="tb_querybox"></TextBox>
+                    <Button Margin="20,0,0,0" Width="50" Click="Batch_BtnClick" Tag="0">搜索</Button>
+                    <Button  Content="新建批次" Width="60"  Style="{StaticResource addButton}" Margin="50 0 0 0" Click="Batch_BtnClick" Tag="1"/>
+                    <Button  Content="修改批次"  Width="60" Style="{StaticResource updateButton}" Margin="20 0 0 0" Click="Batch_BtnClick" Tag="2"/>
+                    <Button  Content="管家导入"  Width="60" Style="{StaticResource importButton}" Margin="20 0 0 0" Click="Batch_BtnClick" Tag="3"/>
+                </StackPanel>
+            </Border>
+            <localPager:NextPageControl  x:Name="nextPageControl1"  HorizontalAlignment="Right"  VerticalAlignment="Top" TotalPage="{Binding Path=TotalPage,Mode=TwoWay}" 
+                                            PageSize="{Binding Path=PageSize,Mode=TwoWay}" CurrentPage="{Binding Path=CurrentPage,Mode=TwoWay}" Margin="370,8,0,0" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger  EventName="PageChanged">
+                        <i:InvokeCommandAction  Command="{Binding Path=NextPageSearchCommand, Mode=TwoWay}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </localPager:NextPageControl>
+            <DataGrid Margin="0,10,0,0" IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="All" Style="{DynamicResource AzureDataGrid}" RenderOptions.ClearTypeHint="Enabled" 
+                          TextOptions.TextFormattingMode="Display" x:Name="BatchGridlist" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="批次ID" Binding="{Binding ID}"  Width="150" Visibility="Collapsed"/>
+                    <DataGridTextColumn Header="批次名" Binding="{Binding BatchName}"  Width="150"/>
+                    <DataGridTextColumn Header="品牌" Binding="{Binding Brand}" Width="100" />
+                    <DataGridTextColumn Header="小件价格" Binding="{Binding PriceMin}" Width="80"/>
+                    <DataGridTextColumn Header="大件价格" Binding="{Binding PriceMax}" Width="80"/>
+                    <DataGridTextColumn Header="福袋总数"  Binding="{Binding Num}" Width="100"/>
+                    <DataGridTextColumn Header="销售数量"  Binding="{Binding SellCount}" Width="100"/>
+                    <DataGridTextColumn Header="新建时间" Width="200" Binding="{Binding CreateTime,StringFormat=yyyy-MM-dd HH:mm:ss}" />
+                    <DataGridTextColumn Header="备注" Binding="{Binding Remark}" Width="500" />
+                    <DataGridCheckBoxColumn Header="是否导入管家" Binding="{Binding ImportErp}" Width="120"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>

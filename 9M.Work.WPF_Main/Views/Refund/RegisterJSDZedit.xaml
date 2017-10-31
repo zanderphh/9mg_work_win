@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Refund.RegisterJSDZedit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:converter="clr-namespace:_9M.Work.WPF_Main.Infrastrcture"
+             mc:Ignorable="d" 
+             Style="{StaticResource DialogViewStyle}"
+             d:DesignHeight="270" d:DesignWidth="580">
+    <UserControl.Resources>
+        <converter:JSDZRegisterTypeVal x:Key="cRegTypeConverter"></converter:JSDZRegisterTypeVal>
+        <Style x:Key="tbTitle" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="Margin" Value="5 0 0 0"></Setter>
+        </Style>
+        <Style x:Key="tbValue" TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="Margin" Value="5 0 0 0"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock Text="分销商名" Style="{StaticResource tbTitle}" ></TextBlock>
+            <TextBox Height="32" Margin="8 0 15 0 " Width="100" HorizontalAlignment="Left" x:Name="txtDiscName" ></TextBox>
+            <TextBlock Text="订单编号" Style="{StaticResource tbTitle}" ></TextBlock>
+            <TextBox Height="32" Margin="8 0 15 0 " Width="100" HorizontalAlignment="Left" x:Name="txtTradeNo" ></TextBox>
+            <TextBlock Text="退款金额" Style="{StaticResource tbTitle}" ></TextBlock>
+            <TextBox Grid.Row="2" Grid.Column="1" Height="32" Margin="8 0 2 0 " Width="100" HorizontalAlignment="Left" x:Name="txtRefundMoney"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock Text="货品编号" Style="{StaticResource tbTitle}" ></TextBlock>
+            <TextBox  Height="32" Margin="8 0 15 0" Width="100" HorizontalAlignment="Left" x:Name="txtSku"></TextBox>
+            <TextBlock Text="登记类型" Style="{StaticResource tbTitle}" ></TextBlock>
+            <ComboBox Height="30" Width="100" Margin="8 0 15 0" x:Name="cmbRegType"  DisplayMemberPath="Text" SelectedValuePath="Value"  ItemsSource="{StaticResource cRegTypeConverter}"></ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Text="备注说明" Style="{StaticResource tbTitle}" ></TextBlock>
+            <TextBox Height="32" Margin="8 0 15 0 " Width="460" HorizontalAlignment="Left" x:Name="txtRemark"></TextBox>
+        </StackPanel>
+        <Button Height="36" Width="130" Content="提交保存" Grid.Row="3" FontSize="14" VerticalAlignment="Center" Click="btn_sure" Margin="0 40 0 0" Cursor="Hand"></Button>
+
+
+    </Grid>
+</UserControl>

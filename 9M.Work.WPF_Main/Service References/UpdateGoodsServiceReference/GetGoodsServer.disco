@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://my.9mg.cc/ajaxhandle/GetGoodsServer.asmx?wsdl" docRef="http://my.9mg.cc/ajaxhandle/GetGoodsServer.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://my.9mg.cc/ajaxhandle/GetGoodsServer.asmx" xmlns:q1="http://my.9mg.cc/" binding="q1:GetGoodsServerSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://my.9mg.cc/ajaxhandle/GetGoodsServer.asmx" xmlns:q2="http://my.9mg.cc/" binding="q2:GetGoodsServerSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

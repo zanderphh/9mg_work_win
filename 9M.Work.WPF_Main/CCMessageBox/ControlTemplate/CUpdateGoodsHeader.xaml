@@ -1,0 +1,110 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.ControlTemplate.CUpdateGoodsHeader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+            >
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel.Resources>
+                
+                <Style TargetType="Label">
+                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                    <Setter Property="FontSize" Value="15"></Setter>
+                    <Setter Property="Foreground" Value="Purple"></Setter>
+                  
+                </Style>
+            </StackPanel.Resources>
+            <Border BorderThickness="1" BorderBrush="Gray"  CornerRadius="3">
+                <WrapPanel>
+                    <!--库存-->
+                    <Label  >库存</Label>
+                    <CheckBox Name="check_syncstock" IsChecked="True">是否同步</CheckBox>
+
+                    <!--库存-->
+                    <Label  Margin="20,0,0,0">面料</Label>
+                    <CheckBox Name="check_miaoliao" IsChecked="False">面料其它</CheckBox>
+                    <!--价格-->
+                    <Label  Margin="50,0,0,0">价格</Label>
+                    <CheckBox Name="check_price" IsChecked="False">是否同步</CheckBox>
+
+                    <!--运费-->
+                    <Label  Margin="50,0,0,0">运费</Label>
+                    <ComboBox SelectedIndex="0" Name="com_post">
+                        
+                    </ComboBox>
+                   
+                    <!--上下架-->
+                    <Label  Margin="50,0,0,0">商品状态</Label>
+                    <ComboBox SelectedIndex="0" Name="com_status">
+                        <ComboBoxItem>不处理</ComboBoxItem>
+                        <ComboBoxItem>上架</ComboBoxItem>
+                        <ComboBoxItem>下架</ComboBoxItem>
+                        <ComboBoxItem>删除</ComboBoxItem>
+                    </ComboBox>
+                    <Controls:DateTimePicker  Culture="zh-CN" Margin="20,0,0,0" Name="date_uptime"></Controls:DateTimePicker>
+
+
+
+                    <!--标题-->
+                    <Label Margin="50,0,0,0" >标题</Label>
+                    <ComboBox SelectedIndex="0" Name="com_title" >
+                        <ComboBoxItem>不处理</ComboBoxItem>
+                        <ComboBoxItem>前追加</ComboBoxItem>
+                        <ComboBoxItem>替换</ComboBoxItem>
+                        <ComboBoxItem>后追加</ComboBoxItem>
+                    </ComboBox>
+                    <WrapPanel VerticalAlignment="Center" Name="Wrap_title" >
+                        <WrapPanel Margin="50,0,0,0" Name="Wrap_add" Visibility="Collapsed">
+                            <Label FontSize="13" Foreground="Black">内容</Label>
+                            <TextBox Width="80" Name="tb_titleadd"></TextBox>
+                        </WrapPanel>
+                        <WrapPanel Margin="40,0,0,0" Name="Wrap_append" Visibility="Collapsed">
+                            <Label FontSize="13" Foreground="Black">原内容</Label>
+                            <TextBox Width="80" Name="tb_titleval"></TextBox>
+                            <Label FontSize="13" Foreground="Black">替换为</Label>
+                            <TextBox Width="80" Name="tb_titleres"></TextBox>
+                        </WrapPanel>
+                    </WrapPanel>
+                </WrapPanel>
+            </Border>
+
+            <Border Margin="0,15,0,0" BorderBrush="Gray" BorderThickness="1" CornerRadius="3">
+                <StackPanel Orientation="Horizontal">
+                    <!--运费-->
+                    <Label >会员折扣</Label>
+                    <ComboBox SelectedIndex="0" Name="com_dis" Width="90">
+                        <ComboBoxItem>不处理</ComboBoxItem>
+                        <ComboBoxItem>打折</ComboBoxItem>
+                        <ComboBoxItem>取消</ComboBoxItem>
+                    </ComboBox>
+                   
+
+                    <!--分类-->
+                    <Label Margin="50,0,0,0">分类添加</Label>
+                    <TextBox IsEnabled="False" Width="200" Name="tb_cids" VerticalContentAlignment="Center"></TextBox>
+                    <Button FontWeight="SemiBold" Margin="10,0,0,0" Click="Button_Click">列表</Button>
+                    
+                    <!-- 品牌属性-->
+                    <Label Margin="50,0,0,0">品牌</Label>
+                    <ComboBox SelectedIndex="0" Name="com_brand">
+                        <ComboBoxItem>不处理</ComboBoxItem>
+                        <ComboBoxItem>替换</ComboBoxItem>
+                    </ComboBox>
+                    <ComboBox Width="80" Margin="10,0,0,0" Name="com_brandVal" SelectedValuePath="Value" DisplayMemberPath="Text">
+                        
+                    </ComboBox>
+                    <!-- 品牌属性-->
+                    <Label Margin="50,0,0,0">卖点</Label>
+                    <ComboBox SelectedIndex="0" Name="com_sellpoint">
+                        <ComboBoxItem>不处理</ComboBoxItem>
+                        <ComboBoxItem>修改</ComboBoxItem>
+                    </ComboBox>
+                    <TextBox Name="tb_sellPoint" Margin="20,0,0,0" Width="400"></TextBox>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</UserControl>

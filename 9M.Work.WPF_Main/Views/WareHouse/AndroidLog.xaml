@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.WareHouse.AndroidLog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:localPager="clr-namespace:_9M.Work.WPF_Common.Controls.Pagination;assembly=9M.Work.WPF_Common" 
+             mc:Ignorable="d" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro">
+    <Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Margin="5 0 0 0 " Grid.Row="0">
+                <RadioButton Content="全部日志"  HorizontalAlignment="Center"  GroupName="s" IsChecked="True" x:Name="rdAll" Click="rd_Click"></RadioButton>
+                <RadioButton Content="货位修改日志"  HorizontalAlignment="Center"  GroupName="s" x:Name="rdUpdateHW" Margin="15 0 0 0" Click="rd_Click"></RadioButton>
+                <RadioButton Content="货品上架日志"  HorizontalAlignment="Center"  GroupName="s" x:Name="rdSj"   Margin="15 0 0 0" Click="rd_Click"></RadioButton>
+              
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5 0 0 0 " Grid.Row="1">
+                <TextBlock Text="| 日期范围选择" Margin="15 0 0 0" VerticalAlignment="Center"></TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="5 0 0 0">
+                    <DatePicker Name="start" Height="35"></DatePicker>
+                    <Label>~</Label>
+                    <DatePicker Name="end" Height="35"></DatePicker>
+                </StackPanel>
+                <TextBlock Text="| 货品编号" Margin="15 0 0 0" VerticalAlignment="Center"></TextBlock>
+                <TextBox Width="120" x:Name="tbSku" Height="30"  Margin="5 0 0 0"></TextBox>
+                <TextBlock Text="| 入库单号" Margin="15 0 0 0" VerticalAlignment="Center"></TextBlock>
+                <TextBox Width="120" x:Name="tbRkNo" Height="30"  Margin="5 0 0 0"></TextBox>
+                <TextBlock Text="| 操作人" Margin="15 0 0 0" VerticalAlignment="Center"></TextBlock>
+                <TextBox Width="120" x:Name="tbOperator" Height="30"  Margin="5 0 0 0"></TextBox>
+                <Button  Content="搜索" FontSize="12" Margin="15 5 5 5" Width="80" Click="Button_Click"></Button>
+            </StackPanel>
+
+            <DataGrid IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="All" Style="{DynamicResource AzureDataGrid}" RenderOptions.ClearTypeHint="Enabled" 
+                          TextOptions.TextFormattingMode="Display" x:Name="LogGridlist" Grid.Row="2" Margin="0 10 0 0">
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="编号" Binding="{Binding id}"  Visibility="Collapsed"/>
+                    <DataGridTextColumn Header="货品编号" Binding="{Binding skuinfo}"  />
+                    <DataGridTextColumn Header="原货位" Binding="{Binding originalhw}" />
+                    <DataGridTextColumn Header="新货位" Binding="{Binding hw}" />
+                    <DataGridTextColumn Header="操作人" Binding="{Binding opt}" />
+                    <DataGridTextColumn Header="操作时间" Binding="{Binding optime,StringFormat=yyyy-MM-dd HH:mm:ss}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <localPager:NextPageControl Grid.Row="3" x:Name="nextPageControl1"  HorizontalAlignment="Right"  VerticalAlignment="Top" TotalPage="{Binding Path=TotalPage,Mode=TwoWay}" PageSize="{Binding Path=PageSize,Mode=TwoWay}" CurrentPage="{Binding Path=CurrentPage,Mode=TwoWay}" >
+                <i:Interaction.Triggers>
+                    <i:EventTrigger  EventName="PageChanged">
+                        <i:InvokeCommandAction  Command="{Binding Path=NextPageSearchCommand, Mode=TwoWay}" />
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </localPager:NextPageControl>
+        </Grid>
+
+    </Grid>
+</UserControl>

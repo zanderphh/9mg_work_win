@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.EveryDayUpdate.FuDaiGoodsEdit"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:_9M.Work.WPF_Main.Views.EveryDayUpdate"
+             mc:Ignorable="d"
+             Style="{StaticResource DialogViewStyle}"
+             >
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+            <Border BorderBrush="Gray" BorderThickness="1">
+                <Image Width="187" Height="250" Name="img_panel" Stretch="Fill"></Image>
+            </Border>
+            <StackPanel Orientation="Vertical" Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <Label>款号:</Label>
+                    <TextBox Width="90" Name="tb_GoodsNoALL" IsEnabled="False"></TextBox>
+                    <Label>批次名:</Label>
+                        <TextBox Width="80" Name="tb_BatchName" IsEnabled="False"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Label>品牌:</Label>
+                        <TextBox Width="80" Name="tb_Brand" IsEnabled="False"></TextBox>
+                    <Label>分类:</Label>
+                        <TextBox Width="80"  Name="tb_Category" IsEnabled="False"></TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Label>类型:</Label>
+                        <ComboBox Width="80" Name="com_Class">
+                            <ComboBoxItem>春夏秋</ComboBoxItem>
+                            <ComboBoxItem>冬</ComboBoxItem>
+                        </ComboBox>
+                        <Label>价格:</Label>
+                    <TextBox Width="80" Name="tb_Price"></TextBox>
+                </StackPanel>
+
+               
+
+                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Label>销售次数:</Label>
+                        <TextBox Width="60" Name="tb_SellCount" IsEnabled="False"></TextBox>
+                    <Label>是否销售:</Label>
+                        <TextBox Width="60" Name="tb_IsSell" IsEnabled="False"></TextBox>
+                </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                        <Label>尺码:</Label>
+                        <TextBox Width="80" Name="tb_Size"></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
+                    <Label>创建时间：</Label>
+                    <Label Width="150" Name="lab_Time"></Label>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+                <Button Width="60" Margin="0,0,20,0" Click="Button_Click" Tag="0">确定</Button>
+                <Button Width="60" Click="Button_Click" Tag="1">取消</Button>
+            </StackPanel>
+          
+        </StackPanel>
+    </Grid>
+</UserControl>

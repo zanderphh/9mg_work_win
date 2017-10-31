@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Refund.EditInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:WT="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common" 
+             xmlns:ecv="clr-namespace:_9M.Work.WPF_Main.Infrastrcture"
+             mc:Ignorable="d" 
+             Style="{StaticResource DialogViewStyle}" Width="780" Height="520">
+    <UserControl.Resources>
+        <ecv:RefundReasonVal x:Key="rrvComboBox"/>
+        <Style TargetType="Label" x:Key="labs">
+            <Setter Property="FontSize" Value="14"></Setter>
+        </Style>
+        <Style TargetType="Label" x:Key="labLeft" BasedOn="{StaticResource labs}">
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="360"></ColumnDefinition>
+            <ColumnDefinition Width="360"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Image Grid.Column="0" Width="360" Height="360" Source="{Binding DataContext.imgUrl,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"></Image>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Content="退货原因" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Style="{StaticResource labLeft}"></Label>
+            <ComboBox Height="30" Grid.Row="0" Grid.Column="1" ItemsSource="{StaticResource rrvComboBox}" DisplayMemberPath="Text" SelectedValuePath="Value" SelectedValue="{Binding DataContext.refundReason,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"></ComboBox>
+            <WT:PerfectWateMarkTextBox Grid.Row="1"  Grid.Column="2" WateMark="质量问题描述" x:Name="txtDESC" VerticalAlignment="Top" Height="200" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"></WT:PerfectWateMarkTextBox>
+            <Label Content="快递公司" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Style="{StaticResource labLeft}"></Label>
+            <ComboBox Height="30" Grid.Row="2" Grid.Column="1" x:Name="cbxExpressCompany" DisplayMemberPath="Text" SelectedValuePath="Text"  SelectedItem="{Binding DataContext.expressCompany,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}"></ComboBox>
+            <WT:PerfectWateMarkTextBox Grid.Row="3"  Grid.Column="2" WateMark="快递单号" x:Name="txtExpressNo" VerticalAlignment="Top"></WT:PerfectWateMarkTextBox>
+            <Label Content="订单编号" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" Style="{StaticResource labLeft}"></Label>
+            <WT:PerfectWateMarkTextBox Grid.Row="4"  Grid.Column="1" WateMark="淘宝订单号/分销流水号" x:Name="txtGjNo"></WT:PerfectWateMarkTextBox>
+            <Button Grid.Row="6" Grid.Column="1" Width="120" Content="保存" FontSize="14" Click="btn_add"></Button>
+        </Grid>
+
+    </Grid>
+</UserControl>

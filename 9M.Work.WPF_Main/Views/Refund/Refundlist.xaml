@@ -1,0 +1,211 @@
+﻿<UserControl x:Class="_9M.Work.WPF_Main.Views.Refund.Refundlist"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:WT="clr-namespace:_9M.Work.WPF_Common.Controls;assembly=9M.Work.WPF_Common" 
+             xmlns:localPager="clr-namespace:_9M.Work.WPF_Common.Controls.Pagination;assembly=9M.Work.WPF_Common" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:converter="clr-namespace:_9M.Work.WPF_Main.Infrastrcture"
+             xmlns:converterParam="clr-namespace:_9M.Work.WPF_Common.ValueObjects;assembly=9M.Work.WPF_Common"
+             xmlns:wpfspark="clr-namespace:WPFSpark;assembly=WPFSpark"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converter:EnumConverter x:Key="eConverter"></converter:EnumConverter>
+            <converter:ShopConverter x:Key="shopConverter"></converter:ShopConverter>
+            <converter:GridBackgroundConverter x:Key="bgConverter"></converter:GridBackgroundConverter>
+            <converterParam:RefundSatausEnum x:Key="EnumRefundStatus">Default</converterParam:RefundSatausEnum>
+            <converterParam:FinanceRefundStatusEnum x:Key="EnumFinanceRefundStatus">noRefund</converterParam:FinanceRefundStatusEnum>
+            <Style x:Key="labs" TargetType="Label">
+                <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            </Style>
+            <Style x:Key="btns" TargetType="Button">
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="Width" Value="80"></Setter>
+                <Setter Property="Cursor" Value="Hand"></Setter>
+            </Style>
+            <Style x:Key="btnHandler" TargetType="{x:Type Button}" >
+                <Setter Property="FontFamily" Value="微软雅黑"></Setter>
+                <Setter Property="Cursor" Value="Hand"></Setter>
+                <Setter Property="FontSize" Value="14"></Setter>
+                <Setter Property="BorderBrush"  Value="Transparent"></Setter>
+                <Setter Property="Control.Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="Chrome" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Margin="10 20 20 10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.RowSpan="2" Panel.ZIndex="999" Orientation="Horizontal" HorizontalAlignment="Center" Height="60" >
+            <wpfspark:SprocketControl Name="loading"  Margin="0,0,0,0"  VerticalAlignment="Center" TickColor="#35c4ff" Width="50" Height="50" TickWidth="3" 
+                                      TickCount="40" StartAngle="-90" IsIndeterminate="True" Interval="30" Visibility="Collapsed" />
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed" Name="loadingTip1">
+                
+                <TextBlock Text="{Binding UpdateTip}"   FontSize="14" Foreground="#000" VerticalAlignment="Center" ></TextBlock>
+                <TextBlock Text="{Binding UpdateNum}"   FontSize="14" Foreground="#000" VerticalAlignment="Center" ></TextBlock>
+                <TextBlock Text="/"  FontSize="14" Foreground="#000" VerticalAlignment="Center" ></TextBlock>
+                <TextBlock Text="{Binding TotalNum}"  FontSize="14" Foreground="#000" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+          
+
+        </StackPanel>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="310"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="90"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+                <ColumnDefinition Width="100"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="店铺" Style="{StaticResource labs}"></Label>
+            <ComboBox Grid.Column="1" Height="32" x:Name="shopCombox"  DisplayMemberPath="shopName" SelectedValuePath="id" ></ComboBox>
+            <WT:PerfectWateMarkTextBox Grid.Column="3" WateMark="快递单号/姓名/联系方式/商品编号" x:Name="txtPNC" KeyDown="txtPNC_KeyDown" />
+            <Button Grid.Column="5" Content="搜索" Style="{StaticResource btns}" Click="btn_Search"></Button>
+            <CheckBox Grid.Column="7" Content="按拆包时间显示" Click="btn_Search" x:Name="ckShowTime" IsChecked="True"></CheckBox>
+            <Border Background="#ff9d9c" Grid.Column="9" >
+                <Label Style="{StaticResource labs}" Margin="5 5 5 5" x:Name="labMsg" Foreground="#fff" FontSize="14"></Label>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="700"></ColumnDefinition>
+                <ColumnDefinition Width="360"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="120"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Column="0" x:Name="spTab">
+                <ItemsControl  x:Name="MgTabButton" ItemsSource="{Binding TabCollection}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal"></WrapPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Text}"  Tag="{Binding Value}" Click="TabButton_Click" Background="{Binding Background}" Margin="0 0 5 0" Style="{StaticResource btns}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+               
+                <Button  Content="新建" Width="38"  Style="{StaticResource addButton}"  Margin="10 0 0 10" Click="btnHandler_Click" Tag="0"/>
+                <Button  Content="编辑"  Width="38" Style="{StaticResource updateButton}" Margin="10 0 0 10" Click="btnHandler_Click" Tag="1"/>
+                <Button  Content="删除"  Width="38" Style="{StaticResource delButton}" Margin="10 0 0 10" Click="btnHandler_Click" Tag="2"/>
+                <Button  Content="批量同步快递单号"  Width="102" Style="{StaticResource delButton}" Margin="10 0 0 10" Click="btnHandler_Click" Tag="4"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Orientation="Horizontal">
+                <localPager:NextPageControl x:Name="nextPageControl1"  HorizontalAlignment="Right"  VerticalAlignment="Top" TotalPage="{Binding Path=TotalPage,Mode=TwoWay}" 
+                                            PageSize="{Binding Path=PageSize,Mode=TwoWay}" CurrentPage="{Binding Path=CurrentPage,Mode=TwoWay}" >
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger  EventName="PageChanged">
+                            <i:InvokeCommandAction  Command="{Binding Path=NextPageSearchCommand, Mode=TwoWay}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </localPager:NextPageControl>
+            </StackPanel>
+            <ComboBox Grid.Column="3" Height="30" Width="100"  DisplayMemberPath="Text" SelectedValuePath="Value" x:Name="cmbColorFlag" VerticalAlignment="Top"></ComboBox>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Border BorderThickness="0 1 0 0" BorderBrush="#92a1a5">
+                <DataGrid IsReadOnly="True" AutoGenerateColumns="False" GridLinesVisibility="All" Style="{DynamicResource AzureDataGrid}" RenderOptions.ClearTypeHint="Enabled" 
+                          TextOptions.TextFormattingMode="Display" x:Name="RefundGridlist" LoadingRow="RefundGridlist_LoadingRow">
+                    <!--<DataGrid.Resources>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="Background" Value="{Binding flagColor,Converter={StaticResource bgConverter}}"/>
+                        </Style>
+                    </DataGrid.Resources>-->
+                    <DataGrid.ContextMenu>
+                        <ContextMenu  StaysOpen="True">
+                            <MenuItem Header="退货登记" Click="btnHandler_Click" Tag="0"></MenuItem>
+                            <MenuItem Header="编辑修改" Click="btnHandler_Click" Tag="1"></MenuItem>
+                            <MenuItem Header="删除登记单" Click="btnHandler_Click" Tag="2"></MenuItem>
+                            <MenuItem Header="待跟踪" Click="btnHandler_Click" Tag="7"></MenuItem>
+                            <MenuItem Header="确认完成" Click="btnHandler_Click" Tag="8"></MenuItem>
+                            <MenuItem Header="取消标记" Click="btnHandler_Click" Tag="6"></MenuItem>
+                            <MenuItem Header="操作日志" Click="btnHandler_Click" Tag="10"></MenuItem>
+                            <MenuItem Header="转完成" Click="btnHandler_Click" Tag="11"></MenuItem>
+                            <MenuItem Header="转异常" Click="btnHandler_Click" Tag="12"></MenuItem>
+                            <MenuItem Header="转拆包" Click="btnHandler_Click" Tag="13"></MenuItem>
+                            <MenuItem Header="转部分退款" Click="btnHandler_Click" Tag="3"></MenuItem>
+                            <MenuItem Header="合并订单" Click="btnHandler_Click" Tag="14"></MenuItem>
+                            <MenuItem Header="客服备注" Click="btnHandler_Click" Tag="15"></MenuItem>
+
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="序号" Binding="{Binding id}"  Visibility="Collapsed"/>
+                        <DataGridTextColumn Header="所在店铺" Binding="{Binding shopId,Converter={StaticResource shopConverter}}"  />
+                        <DataGridTextColumn Header="退货编号" Binding="{Binding refundNo}"  />
+                        <DataGridTemplateColumn Header="呢称" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding tbnick}" MouseLeftButtonDown="TextBlock_MouseLeftButtonDown" Cursor="Hand" ToolTip="单击复制"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="姓名" Binding="{Binding RealName}" />
+                        <DataGridTextColumn Header="联系方式" Binding="{Binding mobile}" />
+                        <DataGridTextColumn Header="退货数" Binding="{Binding refundAmount}" />
+                        <DataGridTextColumn Header="已退数" Binding="{Binding confirmAmount}" />
+                        <!--<DataGridTextColumn Header="退款状态" Binding="{Binding financeRefundStatus,Converter={StaticResource eConverter},ConverterParameter={StaticResource EnumFinanceRefundStatus}}" />-->
+                        <DataGridTextColumn Header="登记人" Binding="{Binding regEmployee}" />
+                        <DataGridTextColumn Header="登记时间" Binding="{Binding regTime,StringFormat=yyyy-MM-dd HH:mm:ss}" />
+                        <DataGridTextColumn Header="处理天数" Binding="{Binding handleDays}" />
+                        <DataGridTextColumn Header="拆包时间" Binding="{Binding unpackingTime,StringFormat=yyyy-MM-dd HH:mm:ss}" />
+                        <DataGridTemplateColumn Header="客服备注" Width="400">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding address}"></TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="当前状态" Binding="{Binding refundStatus,Converter={StaticResource eConverter},ConverterParameter={StaticResource EnumRefundStatus}}"/>
+                        <DataGridTemplateColumn Width="120">
+                            <DataGridTemplateColumn.HeaderTemplate>
+                                <DataTemplate>
+                                    <TextBlock>操作</TextBlock>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.HeaderTemplate>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Button  Content="{Binding dColumn1}" Width="80" Tag="{Binding dColumn2}" Style="{StaticResource btnHandler}" Click="Grid_Handler"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="淘宝备注" Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image  ToolTip="{Binding remark}" Width="20" Height="20" Source="pack://application:,,,/Images/remark.png" ></Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

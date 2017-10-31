@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{80AEC071-D185-4851-9F29-C94EF62D4862}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_9M.Work.Model</RootNamespace>
+    <AssemblyName>9M.Work.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityGoodsModel.cs" />
+    <Compile Include="ActivityLogModel.cs" />
+    <Compile Include="ActivityModel.cs" />
+    <Compile Include="AndroidLogModel.cs" />
+    <Compile Include="AndroidPDModel.cs" />
+    <Compile Include="AndroidScanReceiptModel.cs" />
+    <Compile Include="ApiSpecModel.cs" />
+    <Compile Include="BrandModel.cs" />
+    <Compile Include="CategoryModel.cs" />
+    <Compile Include="CategoryPropertyModel.cs" />
+    <Compile Include="CheckSkuStockModel.cs" />
+    <Compile Include="ClassPriceModel.cs" />
+    <Compile Include="ColorModel.cs" />
+    <Compile Include="ComboboxItemModel.cs" />
+    <Compile Include="DeptModel.cs" />
+    <Compile Include="BunchWareModel.cs" />
+    <Compile Include="Erp_Model_GJRefund.cs" />
+    <Compile Include="EveryDayUpdateModel.cs" />
+    <Compile Include="FenxiaoKeFuModel.cs" />
+    <Compile Include="FenXiaoPropModel.cs" />
+    <Compile Include="FenXiaoTradeModel.cs" />
+    <Compile Include="FenXiaoTradeQueryModel.cs" />
+    <Compile Include="FinanceRefundModel.cs" />
+    <Compile Include="FuDaiBatchModel.cs" />
+    <Compile Include="FuDaiGoodsModel.cs" />
+    <Compile Include="FxDMModel.cs" />
+    <Compile Include="FxWorkOrderModel.cs" />
+    <Compile Include="GoodsImageOperationModel.cs" />
+    <Compile Include="GoodsModel.cs" />
+    <Compile Include="LastSyncExpressTimeModel.cs" />
+    <Compile Include="LiveCheckModel.cs" />
+    <Compile Include="LiveGoodsModel.cs" />
+    <Compile Include="LiveModel.cs" />
+    <Compile Include="Log\GoodsLogModel.cs" />
+    <Compile Include="NewMsgNoticeModel.cs" />
+    <Compile Include="NoPayModel.cs" />
+    <Compile Include="PerformancePanelModel.cs" />
+    <Compile Include="PermissionModel.cs" />
+    <Compile Include="PhotographyDetailModel.cs" />
+    <Compile Include="PhotographyModel.cs" />
+    <Compile Include="PictureModel.cs" />
+    <Compile Include="PrintLabeModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QualityBatchModel.cs" />
+    <Compile Include="QualityCheckLogModel.cs" />
+    <Compile Include="QueryUniqueModel.cs" />
+    <Compile Include="RefundDetailModel.cs" />
+    <Compile Include="RefundLogModel.cs" />
+    <Compile Include="RefundModel.cs" />
+    <Compile Include="RegisterJSDZModel.cs" />
+    <Compile Include="ReportInfoModel.cs" />
+    <Compile Include="Report\LabeReprot.cs" />
+    <Compile Include="SessionUserModel.cs" />
+    <Compile Include="SetValueModel.cs" />
+    <Compile Include="ShopModel.cs" />
+    <Compile Include="SpecModel.cs" />
+    <Compile Include="StatisticsModel.cs" />
+    <Compile Include="Statistics\StatisticsEveryDayForBrandModel.cs" />
+    <Compile Include="StockInCaCheModel.cs" />
+    <Compile Include="TemplateCategoryModel.cs" />
+    <Compile Include="TreeModel.cs" />
+    <Compile Include="UnitityEnum.cs" />
+    <Compile Include="UnknownGoodsModel.cs" />
+    <Compile Include="UnknownlistModel.cs" />
+    <Compile Include="UpdateGoodsModel.cs" />
+    <Compile Include="UserInfoModel.cs" />
+    <Compile Include="UserModel.cs" />
+    <Compile Include="WareLogModel.cs" />
+    <Compile Include="WareMeasureModel.cs" />
+    <Compile Include="WareModel.cs" />
+    <Compile Include="WareSpecModel.cs" />
+    <Compile Include="WdgjWebService\V_GoodsModel.cs" />
+    <Compile Include="WdgjWebService\V_GoodsSpecModel.cs" />
+    <Compile Include="WdgjWebService\V_TradeGoodsModel.cs" />
+    <Compile Include="WdgjWebService\V_TradeModel.cs" />
+    <Compile Include="WebApiPostModel.cs" />
+    <Compile Include="WebApiReturnModel.cs" />
+    <Compile Include="ZBMSModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\9M.Work.Utility\9M.Work.Utility.csproj">
+      <Project>{b0f8d955-3ac1-46c3-b42f-0599426ee1ad}</Project>
+      <Name>9M.Work.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
